@@ -1,0 +1,19 @@
+// same as bootstrap
+$breakpoints: (
+  xs: -1,
+  sm: 35em,
+  // 575px
+  md: 47em,
+  // 767px
+  lg: 61em,
+  // 991px
+  xl: 74em,
+  // 1199px
+  xxl: 86.5em,
+  // 1399px
+);
+
+$colors: (
+  primary: red,
+  tertiary: green,
+);

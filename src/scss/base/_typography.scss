@@ -1,0 +1,12 @@
+@use '../abstracts/' as a;
+body {
+  font-family: "Poppins", sans-serif;
+}
+h1 {
+  color: map-get(a.$colors, tertiary);
+  font-size: 5rem;
+  font-weight: 400;
+}
+a {
+  font-size: 3rem;
+}

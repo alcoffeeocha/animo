@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://animo/./src/js/about.js"],"names":["alert"],"mappings":"AACEA,MAAM","file":"about.b273656d.js","sourcesContent":["(() => {\r\n  alert(\"Wohooo! This is About Page by the way!!!\");\r\n})();\r\n"],"sourceRoot":""}

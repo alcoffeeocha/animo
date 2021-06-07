@@ -1,2 +1,0 @@
-!function(){"use strict";var e=document.getElementById("header"),n=document.getElementById("sidebar");e&&(e.innerHTML="<h1>HEADER!</h1>\r\n"),n&&(n.innerHTML="<h1>Sidebar!</h1>\r\n")}();
-//# sourceMappingURL=app.715e1af9.js.map

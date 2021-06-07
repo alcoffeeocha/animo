@@ -1,12 +1,26 @@
 @use '../abstracts/' as a;
+
 body {
   font-family: "Poppins", sans-serif;
+  color: map-get(a.$clr, dark);
 }
+
 h1 {
-  color: map-get(a.$colors, tertiary);
-  font-size: 5rem;
-  font-weight: 400;
+  @include a.typeSpace(h1);
 }
-a {
-  font-size: 3rem;
+
+h2 {
+  @include a.typeSpace(h2);
+}
+
+h3 {
+  @include a.typeSpace(h3);
+}
+
+h4 {
+  @include a.typeSpace(h4);
+}
+
+.label {
+  @include a.typeSpace(label);
 }

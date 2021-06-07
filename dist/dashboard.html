@@ -15,12 +15,117 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
-    <title>Animo - Dashboard</title>
-  <script defer="defer" src="app.715e1af9.js"></script><link href="main.dff060e4.css" rel="stylesheet"/></head>
+    <title>Animo | Dashboard</title>
+  <script defer="defer" src="app.58d716d9.js"></script><script defer="defer" src="dashboard.583b99d9.js"></script><link href="main.991d8bea.css" rel="stylesheet"/></head>
   <body>
-    <div class="container">
-      <h1>DASHBOARD</h1>
-      <a href="./index.html">Back to Home!</a>
+    <div class="container-xxl position-relative p-0 d-flex">
+      <div class="sidebar-container">
+        <sidebar class="sidebar" id="sidebar"></sidebar>
+      </div>
+      <main class="main">
+        <header class="header" id="header"></header>
+        <div class="row gx-5">
+          <div class="col-12 col-md-7 col-xl-7 col-xxl-8">
+            <div class="hello">
+              <div class="hello__words">
+                <!-- change Jason! using php -->
+                <h2 class="hello__name">Hello, <span>Jason!</span></h2>
+                <h4>Have a nice day at work</h4>
+              </div>
+              <div class="hello__square">
+                <div class="hello__play"></div>
+              </div>
+              <img
+                class="hello__upgrade"
+                loading="lazy"
+                src="images/lets-upgrade.webp"
+                alt="Lets Upgrade Features"
+              />
+            </div>
+            <section class="list">
+              <h2 class="list__title">Daftar Pesanan</h2>
+              <ul class="list__items">
+                <li class="list__item">
+                  <img src="https://via.placeholder.com/90" alt="Placeholder" />
+                  <div class="list__item-detail">
+                    <h3>Cookies Keju</h3>
+                    <p>Rp. 12.000/pc x 2</p>
+                  </div>
+                </li>
+                <li class="list__item">
+                  <img src="https://via.placeholder.com/90" alt="Placeholder" />
+                  <div class="list__item-detail">
+                    <h3>Cookies Keju</h3>
+                    <p>Rp. 12.000/pc x 2</p>
+                  </div>
+                </li>
+                <li class="list__item">
+                  <img src="https://via.placeholder.com/90" alt="Placeholder" />
+                  <div class="list__item-detail">
+                    <h3>Cookies Keju</h3>
+                    <p>Rp. 12.000/pc x 2</p>
+                  </div>
+                </li>
+                <li class="list__item">
+                  <img src="https://via.placeholder.com/90" alt="Placeholder" />
+                  <div class="list__item-detail">
+                    <h3>Cookies Keju</h3>
+                    <p>Rp. 12.000/pc x 2</p>
+                  </div>
+                </li>
+              </ul>
+            </section>
+            <div class="pager pager--with-space">
+              <!-- use DISABLED if the button must not be clicked or just leave it like that -->
+              <span class="pager__count">8 items</span>
+              <button>&lt;</button>
+              <button>&lt;&lt;</button>
+              <span class="pager__current">2</span>
+              <span class="pager__total">of 2</span>
+              <button disabled>&gt;</button>
+              <button disabled>&gt;&gt;</button>
+            </div>
+          </div>
+          <div class="col-12 col-md-5 col-xl-5 col-xxl-4">
+            <section class="list">
+              <h2 class="list__title">Stok Mau Habis</h2>
+              <ul class="list__items">
+                <li class="list__item">
+                  <img src="https://via.placeholder.com/90" alt="Placeholder" />
+                  <div class="list__item-detail">
+                    <h3>Gula</h3>
+                    <p>1 kg</p>
+                  </div>
+                </li>
+                <li class="list__item">
+                  <img src="https://via.placeholder.com/90" alt="Placeholder" />
+                  <div class="list__item-detail">
+                    <h3>Gula</h3>
+                    <p>1 kg</p>
+                  </div>
+                </li>
+                <li class="list__item">
+                  <img src="https://via.placeholder.com/90" alt="Placeholder" />
+                  <div class="list__item-detail">
+                    <h3>Gula</h3>
+                    <p>1 kg</p>
+                  </div>
+                </li>
+              </ul>
+            </section>
+            <div class="level-up">
+              <h3 class="level-up__title">Upgrade akun kamu ke premium!</h3>
+              <p>
+                Nikmati banyak keuntungan yang bikin bisnis kamu makin maksimal.
+              </p>
+              <a href="./upgrade.html" class="button-primary button--compact"
+                >Mulai -></a
+              >
+              <img src="images/level-up.webp" alt="Level Up to Premium" />
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   </body>
 </html>

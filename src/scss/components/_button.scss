@@ -1,0 +1,27 @@
+@use '../abstracts/' as a;
+.button {
+  &-primary {
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 2rem;
+    background: map-get(a.$clr, ctaActive);
+    color: #fff !important;
+
+    &:active {
+      background: map-get(a.$clr, ctaPressed);
+    }
+
+    &:hover,
+    &:focus {
+      background: map-get(a.$clr, ctaHover);
+    }
+
+    &:disabled {
+      background: rgba(map-get(a.$clr, ctaActive), 0.5);
+    }
+  }
+
+  &--compact {
+    padding: 0.5rem 1.5rem;
+  }
+}

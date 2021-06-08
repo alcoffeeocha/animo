@@ -7,6 +7,7 @@ document.head.insertAdjacentHTML("beforeend", htmlHead);
 
 const header = document.getElementById("header");
 const sidebar = document.getElementById("sidebar");
+
 let toggler = null;
 
 if (header) injectHeader();
@@ -16,13 +17,13 @@ function injectHeader() {
   header.innerHTML = headerHtml;
   const now = new Date();
   const days = new Array(
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
+    "Minggu",
+    "Senin",
+    "Selasa",
+    "Rabu",
+    "Kamis",
+    "Jumat",
+    "Sabtu"
   );
   const monthName = new Array(
     "Januari",
@@ -80,3 +81,25 @@ function toggleSidebar() {
   d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
 />`;
 }
+
+const modalOpener = document.querySelectorAll("[data-modal]");
+
+if (modalOpener) {
+  modalOpener.forEach((opener) => {
+    opener.addEventListener("click", function () {
+      document.getElementById(this.dataset.modal).classList.add("appear");
+    });
+  });
+}
+
+document.querySelectorAll(".dialog__backdrop").forEach((backdrop) => {
+  backdrop.addEventListener("click", (e) => {
+    backdrop.parentElement.classList.remove("appear");
+  });
+});
+
+document.querySelectorAll(".dialog__box").forEach((box) => {
+  box.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+});

@@ -3,13 +3,23 @@ $cta: map-get(a.$clr, ctaActive);
 $hover: map-get(a.$clr, ctaHover);
 $pressed: map-get(a.$clr, ctaPressed);
 .pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 2rem;
   * {
     margin-right: 1.2rem;
   }
 
   &__count {
     font-weight: 300;
+    text-align: center;
+    width: 100%;
     @include a.typeSpace(label);
+    @include a.mq(sm) {
+      width: max-content;
+      text-align: start;
+    }
   }
 
   button {

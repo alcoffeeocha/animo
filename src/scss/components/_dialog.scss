@@ -1,0 +1,225 @@
+@use '../abstracts/' as a;
+
+.dialog {
+  &__backdrop,
+  &__box {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+  }
+
+  &__backdrop {
+    background: rgba(map-get(a.$clr, dark), 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+  }
+
+  &__box {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: map-get(a.$clr, bgPopup);
+    border-radius: 3.5rem;
+    z-index: 250;
+
+    .dialog__feedback {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+      background: map-get(a.$clr, bgPopup);
+      display: none;
+      border-radius: 3.5rem;
+
+      &-msg {
+        list-style: none;
+        font-size: 2rem;
+      }
+      &--appear {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 2rem;
+      }
+
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.appear {
+    .dialog__backdrop,
+    .dialog__box {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__add-product {
+    .dialog__box {
+      width: 100vw;
+      height: 100%;
+      border-radius: 0;
+      // width: 85rem;
+      // // height: 54rem;
+      // max-width: 95vw;
+      // max-height: 100vh;
+      padding: 2rem;
+
+      @include a.mq(sm) {
+        width: 80vw;
+        height: max-content;
+        border-radius: 3.5rem;
+        padding: 4rem 5rem 3rem;
+      }
+
+      @include a.mq(md) {
+        width: 85vw;
+      }
+
+      @include a.mq(lg) {
+        width: 80rem;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      row-gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      flex-direction: column;
+
+      @include a.mq(md) {
+        flex-direction: row;
+      }
+
+      @include a.mq(lg) {
+        width: 85%;
+        margin: 0 auto;
+      }
+
+      input {
+        border-radius: 1rem;
+        font-weight: 600;
+        font-size: 1.8rem;
+        text-align: center;
+        padding: 0.4rem;
+        border: 0.2px solid #733e32;
+        outline: none;
+        width: 100%;
+
+        @include a.mq(sm) {
+          width: 70%;
+        }
+        @include a.mq(md) {
+          width: 65%;
+        }
+        @include a.mq(lg) {
+          width: 60%;
+        }
+      }
+    }
+
+    .form-label {
+      width: 100%;
+      font-weight: 400;
+      @include a.typeSpace(h4);
+
+      @include a.mq(md) {
+        width: 35%;
+      }
+
+      @include a.mq(lg) {
+        width: 40%;
+      }
+    }
+
+    .dialog__cta {
+      margin: 1rem 0 2rem;
+      display: flex;
+      flex-direction: column;
+      row-gap: 2rem;
+      width: 100%;
+
+      @include a.mq(md) {
+        margin-top: 2rem;
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+    }
+
+    button {
+      padding: 1rem 4rem;
+      @include a.typeSpace(h4);
+    }
+  }
+
+  &__cta {
+    display: flex;
+    column-gap: 3rem;
+  }
+
+  &__add-prod-cat {
+    .dialog__box {
+      width: 50rem;
+      max-width: 95vw;
+      height: max-content;
+      padding: 4rem 0 3rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      row-gap: 1rem;
+
+      input {
+        border-bottom: 1px solid rgba(#000, 0.8);
+        border-top: transparent;
+        border-left: transparent;
+        border-right: transparent;
+        background: transparent;
+        outline: none;
+        width: 32rem;
+        height: 3.5rem;
+        font-weight: 600;
+        font-size: 1.8rem;
+
+        &::placeholder {
+          color: rgba(#000, 0.2);
+          text-align: center;
+        }
+      }
+    }
+
+    .dialog__prompt {
+      margin-top: 1rem;
+      font-size: 1.6rem;
+      font-weight: 400;
+
+      button {
+        margin-left: 0.5rem;
+        padding: 1rem 2rem;
+      }
+    }
+  }
+}

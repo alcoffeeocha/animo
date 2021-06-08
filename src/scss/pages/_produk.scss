@@ -1,0 +1,163 @@
+@use '../abstracts/' as a;
+
+.products {
+  counter-reset: noproduk;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.4rem;
+  justify-content: center;
+  padding: 0;
+  margin: 3.8rem 0 3rem;
+
+  @include a.mq(lg) {
+    margin: 3.8rem 0 5rem;
+  }
+
+  &__item {
+    counter-increment: noproduk;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 2rem;
+    padding: 1.4rem 0.4rem;
+    background: transparent;
+    max-width: 38rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+
+    a {
+      text-decoration: none;
+    }
+
+    h4 {
+      color: map-get(a.$clr, dark);
+      font-weight: 600;
+    }
+
+    h4::before {
+      content: counter(noproduk);
+      background: rgba(map-get(a.$clr, profile), 0.35);
+      border-radius: 1rem;
+      width: 4rem;
+      height: 4rem;
+      line-height: 4rem;
+      margin-right: 1rem;
+      display: inline-block;
+      text-align: center;
+    }
+
+    &--selected {
+      background: map-get(a.$clr, selectMenu);
+      pointer-events: none;
+      cursor: default;
+
+      h4 {
+        color: #fff;
+      }
+    }
+
+    &:hover {
+      background: rgba(map-get(a.$clr, selectMenu), 0.8);
+
+      h4 {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+  margin-top: 2rem;
+
+  @include a.mq(sm) {
+    row-gap: 4rem;
+  }
+  @include a.mq(lg) {
+    margin-top: 0;
+    row-gap: 6rem;
+  }
+
+  &__image {
+    width: 19rem;
+    height: 19rem;
+    border-radius: 2rem;
+  }
+
+  &__desc {
+    button {
+      width: 5rem;
+      height: 3.4rem;
+      position: relative;
+    }
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+      @include a.centerMe();
+    }
+
+    p {
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    margin-right: 1rem;
+  }
+}
+
+.product-material {
+  &__title {
+    font-weight: 600;
+    margin-right: 1rem;
+  }
+
+  a {
+    font-weight: 600;
+    font-size: 2.4rem;
+    width: 4rem;
+    height: 2.8rem;
+    display: inline-block;
+    text-align: center;
+    line-height: 2.8rem;
+  }
+
+  &__table {
+    max-width: 90vw;
+    margin-top: 1.5rem;
+    font-size: 1.6rem;
+
+    @include a.mq(md) {
+      font-size: 1.8rem;
+    }
+
+    @include a.mq(lg) {
+      margin-top: 3rem;
+      font-size: 2rem;
+    }
+
+    th {
+      font-weight: 400;
+      font-size: inherit;
+      padding: 0.8rem 1rem;
+    }
+
+    td {
+      font-weight: 500;
+      font-size: inherit;
+      padding: 0.8rem 1rem;
+
+      &:not(:first-child) {
+        text-align: center;
+      }
+    }
+  }
+}

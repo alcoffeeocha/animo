@@ -127,10 +127,15 @@
   margin: 4rem auto;
   background: map-get(a.$clr, bgSecondary);
   border-radius: 2rem;
-  padding: 3.5rem 4rem;
   position: relative;
   height: 32rem;
-  width: 38rem;
+  width: 95vw;
+  padding: 3.5rem 2rem;
+
+  @include a.mq(sm) {
+    width: 38rem;
+    padding: 3.5rem 4rem;
+  }
 
   @include a.mq(md) {
     height: 36rem;
@@ -146,7 +151,11 @@
     font-weight: 400;
     font-size: 1.6rem;
     margin-bottom: 2rem;
-    width: 50%;
+    width: 45%;
+
+    @include a.mq(sm) {
+      width: 50%;
+    }
 
     @include a.mq(md) {
       font-size: 1.8rem;

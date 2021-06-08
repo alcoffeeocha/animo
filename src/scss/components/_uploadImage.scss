@@ -1,0 +1,29 @@
+@use '../abstracts/' as a;
+
+.upload-image {
+  position: relative;
+  width: max-content;
+  height: max-content;
+
+  input[type="file"] {
+    display: none;
+  }
+
+  &__area {
+    display: block;
+    text-align: center;
+    line-height: 16rem;
+    cursor: pointer;
+    background: map-get(a.$clr, placeholder);
+    border-radius: 2rem;
+    width: 16rem;
+    height: 16rem;
+    font-weight: 400;
+    font-size: 12rem;
+    color: rgba(map-get(a.$clr, dark), 0.2);
+  }
+
+  p {
+    font-size: 2rem;
+  }
+}

@@ -5,23 +5,67 @@
     text-decoration: none;
     border-radius: 2rem;
     background: map-get(a.$clr, ctaActive);
+    border-width: 1px;
+    border-style: solid;
+    border-color: map-get(a.$clr, ctaActive);
     color: #fff !important;
+    border-radius: 2rem;
+    outline: none;
 
     &:active {
       background: map-get(a.$clr, ctaPressed);
+      border-color: map-get(a.$clr, ctaPressed);
     }
 
     &:hover,
     &:focus {
+      border-color: map-get(a.$clr, ctaHover);
       background: map-get(a.$clr, ctaHover);
     }
 
     &:disabled {
+      border-color: rgba(map-get(a.$clr, ctaActive), 0.5);
       background: rgba(map-get(a.$clr, ctaActive), 0.5);
+    }
+  }
+  &-secondary {
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 2rem;
+    color: map-get(a.$clr, ctaActive);
+    border-color: map-get(a.$clr, ctaActive);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2rem;
+    outline: none;
+    background: transparent;
+
+    &:active {
+      color: map-get(a.$clr, ctaPressed);
+      border-color: map-get(a.$clr, ctaPressed);
+    }
+
+    &:hover,
+    &:focus {
+      color: map-get(a.$clr, ctaHover);
+      border-color: map-get(a.$clr, ctaHover);
+    }
+
+    &:disabled {
+      color: rgba(map-get(a.$clr, ctaActive), 0.5);
+      border-color: rgba(map-get(a.$clr, ctaActive), 0.5);
     }
   }
 
   &--compact {
     padding: 0.5rem 1.5rem;
+  }
+
+  &--rounded-1 {
+    font-size: 2rem;
+    border-radius: 1rem;
+    font-size: 2.6rem;
+    padding: 0 1rem;
+    font-weight: 600;
   }
 }

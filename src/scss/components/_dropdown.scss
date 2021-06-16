@@ -1,0 +1,88 @@
+@use '../abstracts/' as a;
+.dropdown {
+  &__selected,
+  &__option {
+    padding: 0.8rem 1.4rem;
+    @include a.mq(md) {
+      padding: 1rem 2rem;
+    }
+  }
+
+  &__selected {
+    border: 2px solid #bababa;
+    box-sizing: border-box;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    order: 0;
+    font-size: 2rem;
+    cursor: pointer;
+    @include a.mq(md) {
+      font-size: 2.4rem;
+    }
+
+    &::after {
+      content: ">";
+      font-size: 2.4rem;
+      position: absolute;
+      right: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-weight: 600;
+    }
+  }
+
+  &__box {
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+  }
+  &__options {
+    background-color: #fff;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3s;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px #d1cfcf;
+    position: absolute;
+    z-index: 100;
+    order: 1;
+    top: 100%;
+
+    &::-webkit-scrollbar {
+      width: 0.8rem;
+      background: rgb(243, 241, 241);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #1f1f1f;
+    }
+
+    &.active {
+      opacity: 1;
+      max-height: 30rem;
+      overflow-y: scroll;
+
+      + .dropdown__selected::after {
+        transform: translateY(-50%) rotate(-90deg);
+      }
+    }
+  }
+
+  &__option {
+    cursor: pointer;
+    &:hover {
+      background: rgba(#e47f59, 0.3);
+    }
+    input {
+      display: none;
+    }
+    label {
+      font-size: 1.6rem;
+      @include a.mq(md) {
+        font-size: 2rem;
+      }
+    }
+  }
+}

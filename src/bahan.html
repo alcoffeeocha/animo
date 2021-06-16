@@ -104,11 +104,9 @@
                       Belum ada bahan yang ditambahkan.
                     </td>
                   </tr>
-                  <tr>
+                  <tr class="align-middle">
                     <td data-label="Nama" rowspan="3">Tepung</td>
-                    <td data-id-sub="sub1" data-label="Sub Bahan">
-                      Segitiga Biru
-                    </td>
+                    <td data-label="Sub Bahan">Segitiga Biru</td>
                     <td data-label="Satuan">gram</td>
                     <td data-label="Merk">Bogasari</td>
                     <td data-label="Supplier">Supplier 1</td>
@@ -134,7 +132,7 @@
                       </button>
                     </td>
                   </tr>
-                  <tr>
+                  <tr class="align-middle">
                     <td data-label="Sub Bahan">Cakra Kembar</td>
                     <td data-label="Satuan">gram</td>
                     <td data-label="Merk">Bogasari</td>
@@ -161,7 +159,7 @@
                       </button>
                     </td>
                   </tr>
-                  <tr>
+                  <tr class="align-middle">
                     <td data-label="Sub Bahan">Maizena</td>
                     <td data-label="Satuan">gram</td>
                     <td data-label="Merk">Bogasari</td>
@@ -188,7 +186,7 @@
                       </button>
                     </td>
                   </tr>
-                  <tr>
+                  <tr class="align-middle">
                     <td data-label="Nama">Telor</td>
                     <td data-label="Sub Bahan">Ayam Kampung</td>
                     <td data-label="Satuan">Butir</td>
@@ -220,7 +218,7 @@
               </table>
             </div>
           </div>
-          <div id="bahan-add-item" class="bahan__add-item w-100">
+          <div id="bahan-add-item" class="bahan__add-item w-100 mt-5 p-5">
             <form
               class="form"
               action="/bahan/input"
@@ -228,8 +226,10 @@
               method="GET"
             >
               <input type="hidden" name="idMaterial" />
-              <div class="row">
-                <div class="col-12 col-sm-8 col-md-6 mb-3">
+              <div
+                class="row justify-content-sm-center justify-content-md-start"
+              >
+                <div class="col-12 col-sm-8 col-md-6 mb-5">
                   <label class="form__label" for="select-category"
                     >Kategori Bahan</label
                   >
@@ -243,8 +243,10 @@
                   </select>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12 col-sm-8 col-md mb-3">
+              <div
+                class="row justify-content-sm-center justify-content-md-start"
+              >
+                <div class="col-12 col-sm-8 col-md mb-5">
                   <label class="form__label" for="material">Nama Bahan</label>
                   <input
                     class="form__input"
@@ -253,7 +255,7 @@
                     id="material"
                   />
                 </div>
-                <div class="col-12 col-sm-8 col-md mb-3">
+                <div class="col-12 col-sm-8 col-md mb-5">
                   <label class="form__label" for="select-unit">Satuan</label>
                   <select
                     class="form__select form__select--narrow"
@@ -266,8 +268,10 @@
                   </select>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12 col-sm-8 col-md-6 mb-3">
+              <div
+                class="row justify-content-sm-center justify-content-md-start"
+              >
+                <div class="col-12 col-sm-8 col-md-6 mb-5">
                   <label class="form__label" for="sub-material"
                     >Sub Bahan</label
                   >
@@ -279,8 +283,10 @@
                   />
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12 col-sm-8 col-md-6 mb-3">
+              <div
+                class="row justify-content-sm-center justify-content-md-start"
+              >
+                <div class="col-12 col-sm-8 col-md-6 mb-5">
                   <label class="form__label" for="brand">Merk</label>
                   <input
                     class="form__input"
@@ -290,8 +296,10 @@
                   />
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12 col-sm-8 col-md mb-3">
+              <div
+                class="row justify-content-sm-center justify-content-md-start"
+              >
+                <div class="col-12 col-sm-8 col-md mb-5">
                   <label class="form__label" for="supplier">Supplier</label>
                   <input
                     class="form__input"
@@ -300,7 +308,7 @@
                     id="supplier"
                   />
                 </div>
-                <div class="col-12 col-sm-8 col-md mb-3">
+                <div class="col-12 col-sm-8 col-md mb-5">
                   <label class="form__label" for="contact"
                     >Kontak/URL Supplier</label
                   >
@@ -448,6 +456,7 @@
       document.getElementById("cancel-add").onclick = () => {
         bahanAllItems.classList.remove("d-none");
         bahanAddItem.classList.remove("d-block");
+        window.scrollTo(0, 0);
       };
     </script>
   </body>

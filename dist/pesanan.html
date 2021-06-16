@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
     <title>Animo | Pesanan</title>
-  <script defer="defer" src="app.5e59539c.js"></script><script defer="defer" src="pesanan.944f77e6.js"></script><link href="main.d2daba05.css" rel="stylesheet"/></head>
+  <script defer="defer" src="app.5e59539c.js"></script><script defer="defer" src="pesanan.961677c8.js"></script><link href="main.b6f5a15b.css" rel="stylesheet"/></head>
 
   <body>
     <div class="container-xxl position-relative p-0 d-flex">
@@ -25,8 +25,481 @@
       </div>
       <main class="main">
         <header class="header" id="header"></header>
-        <div class="row"></div>
+        <section class="pesanan">
+          <div id="pesanan-all-items" class="pesanan__all-items w-100">
+            <div class="row align-items-center">
+              <div class="col-12 col-md-7 mb-5 mb-md-0">
+                <div id="add-order" class="add-item">
+                  <button class="button-primary button--rounded-1">
+                    &plus;
+                  </button>
+                  <p>Tambah Item</p>
+                </div>
+              </div>
+            </div>
+            <div class="row d-relative">
+              <table class="table table__bahan">
+                <thead>
+                  <tr>
+                    <th>Tanggal</th>
+                    <th>Nama</th>
+                    <th>Produk</th>
+                    <th>Jumlah</th>
+                    <th>Status Bayar</th>
+                    <th>Status Pesan</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <!-- hapus "table__empty--false" jika ingin memunculkan teks di bawah -->
+                    <td
+                      class="table__empty table__empty--false pt-5"
+                      colspan="7"
+                    >
+                      Belum ada pesanan yang ditambahkan.
+                    </td>
+                  </tr>
+                  <tr class="align-middle">
+                    <!-- inject tanggal dengan format yyy-mm-dd, js yg akan menyempurnakan -->
+                    <td data-label="Tanggal">2021-03-12</td>
+                    <td data-label="Nama">Jason</td>
+                    <td data-label="Produk">Cookies Keju</td>
+                    <td data-label="Jumlah">2</td>
+                    <td data-label="Status Bayar">Belum Lunas</td>
+                    <td data-label="Status Pesan">Dibatalkan</td>
+                    <td data-label="Aksi">
+                      <button
+                        onclick="editPesanan({
+                        id: 'pesanan1',
+                        tanggal: '2021-03-12',
+                        nama: 'Jason',
+                        produk: 'Cookies Keju',
+                        jumlah: 2,
+                        statusBayar: 'Belum Lunas',
+                        statusPesan: 'Dibatalkan',
+                      })"
+                        class="button-primary"
+                      >
+                        <img src="images/pen.svg" alt="Edit Icon" />
+                      </button>
+                      <button
+                        onclick="deletePesanan('pesanan1')"
+                        class="button-secondary"
+                      >
+                        <img src="images/trash.svg" alt="Delete Icon" />
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="align-middle">
+                    <!-- inject tanggal dengan format yyy-mm-dd, js yg akan menyempurnakan -->
+                    <td data-label="Tanggal">2021-02-13</td>
+                    <td data-label="Nama">Rilley</td>
+                    <td data-label="Produk">Cookies Cokelat</td>
+                    <td data-label="Jumlah">5</td>
+                    <td data-label="Status Bayar">Lunas</td>
+                    <td data-label="Status Pesan">Sudah Diterima</td>
+                    <td data-label="Aksi">
+                      <button
+                        onclick="editPesanan({
+                        id: 'pesanan2',
+                        tanggal: '2021-02-13',
+                        nama: 'Rilley',
+                        produk: 'Cookies Cokelat',
+                        jumlah: 5,
+                        statusBayar: 'Lunas',
+                        statusPesan: 'Sudah Diterima',
+                      })"
+                        class="button-primary"
+                      >
+                        <img src="images/pen.svg" alt="Edit Icon" />
+                      </button>
+                      <button
+                        onclick="deletePesanan('pesanan2')"
+                        class="button-secondary"
+                      >
+                        <img src="images/trash.svg" alt="Delete Icon" />
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="align-middle">
+                    <!-- inject tanggal dengan format yyy-mm-dd, js yg akan menyempurnakan -->
+                    <td data-label="Tanggal">2020-04-15</td>
+                    <td data-label="Nama">Olivia</td>
+                    <td data-label="Produk">Kubimsu</td>
+                    <td data-label="Jumlah">5</td>
+                    <td data-label="Status Bayar">Belum Lunas</td>
+                    <td data-label="Status Pesan">Sedang Diproses</td>
+                    <td data-label="Aksi">
+                      <button
+                        onclick="editPesanan({
+                        id: 'pesanan2',
+                        nama: 'Olivia',
+                        produk: 'Kubimsu',
+                        jumlah: 3,
+                        tanggal: '2020-04-15',
+                        statusBayar: 'Belum Lunas',
+                        statusPesan: 'Sedang Diproses',
+                      })"
+                        class="button-primary"
+                      >
+                        <img src="images/pen.svg" alt="Edit Icon" />
+                      </button>
+                      <button
+                        onclick="deletePesanan('pesanan3')"
+                        class="button-secondary"
+                      >
+                        <img src="images/trash.svg" alt="Delete Icon" />
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="pesanan-add-item" class="pesanan__add-item w-100 mt-5 p-5">
+            <form
+              class="form"
+              action="/pesanan/input"
+              name="form-add-order"
+              method="GET"
+            >
+              <input type="hidden" name="idPesanan" />
+              <div
+                class="row justify-content-sm-center justify-content-md-start"
+              >
+                <div class="col-12 col-sm-8 col-md-6 mb-5">
+                  <label for="buyer" class="form__label">Nama Pemesan</label>
+                  <input
+                    type="text"
+                    class="form__input"
+                    name="buyer"
+                    id="buyer"
+                  />
+                </div>
+              </div>
+              <div
+                class="row justify-content-sm-center justify-content-md-start"
+              >
+                <div class="col-12 col-sm-8 col-md-6 mb-5">
+                  <label class="form__label">Produk yang Dipesan</label>
+
+                  <div class="dropdown__box">
+                    <div class="dropdown__options" id="product-options">
+                      <div class="dropdown__option">
+                        <input
+                          type="radio"
+                          id="prod1"
+                          name="product"
+                          value="Cookies Keju"
+                        />
+                        <label for="prod1">Cookies Keju</label>
+                      </div>
+                      <div class="dropdown__option">
+                        <input
+                          type="radio"
+                          id="prod2"
+                          name="product"
+                          value="Cookies Cokelat"
+                        />
+                        <label for="prod2">Cookies Cokelat</label>
+                      </div>
+                      <div class="dropdown__option">
+                        <input
+                          type="radio"
+                          id="prod3"
+                          name="product"
+                          value="Kubimsu"
+                        />
+                        <label for="prod3">Kubimsu</label>
+                      </div>
+                      <div class="dropdown__option">
+                        <input
+                          type="radio"
+                          id="prod4"
+                          name="product"
+                          value="Josu"
+                        />
+                        <label for="prod4">Josu</label>
+                      </div>
+                      <div class="dropdown__option">
+                        <input
+                          type="radio"
+                          id="prod5"
+                          name="product"
+                          value="Kopi Susu"
+                        />
+                        <label for="prod5">Kopi Susu</label>
+                      </div>
+                      <div class="dropdown__option">
+                        <input
+                          type="radio"
+                          id="prod6"
+                          name="product"
+                          value="Cookies Kacang"
+                        />
+                        <label for="prod6">Cookies Kacang</label>
+                      </div>
+                      <div class="dropdown__option">
+                        <input
+                          type="radio"
+                          id="prod7"
+                          name="product"
+                          value="Nasi Goreng"
+                        />
+                        <label for="prod6">Nasi Goreng</label>
+                      </div>
+                    </div>
+                    <div class="dropdown__selected" id="product-selected"></div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-8 col-md-4 mb-5">
+                  <label for="qty" class="form__label">Jumlah</label>
+                  <input
+                    type="number"
+                    min="0"
+                    value="0"
+                    class="form__input"
+                    name="qty"
+                    id="qty"
+                  />
+                </div>
+              </div>
+              <div
+                class="row justify-content-sm-center justify-content-md-start"
+              >
+                <div class="col-12 col-sm-8 col-md-6 mb-5">
+                  <label for="date" class="form__label">Tanggal</label>
+                  <input
+                    type="date"
+                    class="form__input"
+                    name="date"
+                    id="date"
+                  />
+                </div>
+              </div>
+              <div
+                class="row justify-content-sm-center justify-content-md-start"
+              >
+                <div class="col-12 col-sm-8 col-md-6 mb-5">
+                  <label class="form__label">Status Pembayaran</label>
+                  <div class="d-block d-md-inline-block mb-3">
+                    <div class="d-inline-flex align-items-md-center">
+                      <label class="form__radio">
+                        <input
+                          type="radio"
+                          name="paymentStatus"
+                          value="Belum Lunas"
+                          id="payment-opt-1"
+                        />
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="form__radio-label" for="payment-opt-1"
+                        >Belum Lunas</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="d-block d-md-inline-block mb-3">
+                    <div class="d-inline-flex align-items-md-center">
+                      <label class="form__radio">
+                        <input
+                          type="radio"
+                          name="paymentStatus"
+                          value="Lunas"
+                          id="payment-opt-2"
+                        />
+
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="form__radio-label" for="payment-opt-2"
+                        >Lunas</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="row justify-content-sm-center justify-content-md-start"
+              >
+                <div class="col-12 col-sm-8 col-md-12 mb-5">
+                  <label class="form__label">Status Pesanan</label>
+                  <div class="d-block d-md-inline-block mb-3">
+                    <div class="d-inline-flex align-items-md-center">
+                      <label class="form__radio">
+                        <input
+                          type="radio"
+                          name="orderStatus"
+                          value="Sudah Diterima"
+                          id="order-opt-1"
+                        />
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="form__radio-label" for="order-opt-1"
+                        >Sudah Diterima</label
+                      >
+                    </div>
+                  </div>
+                  <div class="d-block d-md-inline-block mb-3">
+                    <div class="d-inline-flex align-items-md-center">
+                      <label class="form__radio">
+                        <input
+                          type="radio"
+                          name="orderStatus"
+                          value="Dibatalkan"
+                          id="order-opt-2"
+                        />
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="form__radio-label" for="order-opt-2"
+                        >Dibatalkan</label
+                      >
+                    </div>
+                  </div>
+                  <div class="d-block d-md-inline-block mb-3">
+                    <div class="d-inline-flex align-items-md-center">
+                      <label class="form__radio">
+                        <input
+                          type="radio"
+                          name="orderStatus"
+                          value="Sedang Diproses"
+                          id="order-opt-3"
+                        />
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="form__radio-label" for="order-opt-3"
+                        >Sedang Diproses</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col d-flex justify-content-end mt-5">
+                  <button
+                    class="button-grey form__button"
+                    type="button"
+                    onclick="cancelAddItem"
+                    id="cancel-add"
+                  >
+                    Batal
+                  </button>
+                  <button
+                    type="submit"
+                    class="button-primary form__button"
+                    style="margin-right: 0"
+                  >
+                    Simpan
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
       </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
+    <script>
+      const pesananAllItems = document.getElementById("pesanan-all-items");
+      const pesananAddItem = document.getElementById("pesanan-add-item");
+      const productSelected = document.getElementById("product-selected");
+      const productOptions = document.getElementById("product-options");
+      const productList = document.querySelectorAll(
+        "#product-options .dropdown__option"
+      );
+
+      productSelected.onclick = () => {
+        productOptions.classList.toggle("active");
+      };
+
+      productList.forEach((o) => {
+        o.onclick = () => {
+          productSelected.textContent = o.querySelector("label").textContent;
+          productOptions.classList.remove("active");
+        };
+      });
+
+      function editPesanan({
+        id,
+        nama,
+        produk,
+        jumlah,
+        tanggal,
+        statusBayar,
+        statusPesan,
+      }) {
+        pesananAllItems.classList.add("d-none");
+        pesananAddItem.classList.add("d-block");
+        document.forms["form-add-order"].forEach((el) => {
+          switch (el.name) {
+            case "idPesanan":
+              el.value = id;
+              break;
+            case "buyer":
+              el.value = nama;
+              break;
+            case "product":
+              if (el.value.toLowerCase() === produk.toLowerCase()) {
+                el.checked = true;
+                productSelected.textContent = el.value;
+              }
+              break;
+            case "qty":
+              el.value = jumlah;
+              break;
+            case "date":
+              el.value = tanggal;
+              break;
+            case "paymentStatus":
+              if (el.value.toLowerCase() === statusBayar.toLowerCase()) {
+                el.checked = true;
+                return;
+              }
+              break;
+            case "orderStatus":
+              if (el.value.toLowerCase() === statusPesan.toLowerCase()) {
+                el.checked = true;
+                return;
+              }
+              break;
+          }
+        });
+        document.getElementById("header-title").textContent = "Edit Pesanan";
+      }
+
+      function deletePesanan(orderId) {
+        Swal.fire({
+          title: "Apakah kamu yakin?",
+          text: "Pesanan yang telah terhapus tidak dapat kembali lagi",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#802302",
+          cancelButtonColor: "#6e7d88",
+          confirmButtonText: "Ya, hapus",
+          cancelButtonText: "Batal",
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            let response = await fetch("/pesanan/delete/" + orderId, {
+              method: "GET",
+            });
+            if (response.ok) {
+              Swal.fire("Terhapus", "Pesanan berhasil terhapus", "success");
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+              });
+            }
+          }
+        });
+      }
+
+      document.getElementById("cancel-add").onclick = () => {
+        pesananAllItems.classList.remove("d-none");
+        pesananAddItem.classList.remove("d-block");
+        window.scrollTo(0, 0);
+      };
+    </script>
   </body>
 </html>

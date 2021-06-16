@@ -60,7 +60,7 @@
         /* Opera */
         -o-transform: rotate(-90deg);
       }
-      + .filter__group {
+      ~ .filter__group {
         height: max-content;
         padding: 2rem 3.4rem 2rem 0;
       }
@@ -81,6 +81,7 @@
   &__value {
     margin-bottom: 1rem;
     cursor: pointer;
+    position: relative;
 
     a {
       text-decoration: none;

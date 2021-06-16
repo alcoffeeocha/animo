@@ -1,0 +1,111 @@
+@use '../abstracts/' as a;
+
+.table {
+  display: table;
+  margin-top: 4rem;
+  border-collapse: collapse;
+  width: 100%;
+
+  @include a.mq(md) {
+    margin-top: 7rem;
+  }
+
+  th,
+  td {
+    font-size: 2rem;
+  }
+
+  th {
+    font-weight: 400;
+    border: none;
+  }
+
+  td {
+    font-weight: 500;
+    border: none;
+    word-break: break-all;
+  }
+
+  button {
+    padding: 0.4rem 1.4rem;
+    border-radius: 1rem;
+
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &__bahan {
+    thead {
+      display: none;
+      @include a.mq(lg) {
+        display: table-header-group;
+      }
+    }
+
+    @media only screen and (max-width: 61.9rem) {
+      & {
+        display: block;
+        width: 100%;
+      }
+      tbody,
+      tr,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      th,
+      td {
+        font-size: 1.75rem;
+      }
+
+      tr {
+        margin-bottom: 1.5rem;
+
+        [data-label="Nama"] {
+          background: #f2d5bb;
+        }
+      }
+
+      tr td {
+        text-align: right;
+        position: relative;
+
+        &:not(.table__empty) {
+          padding-left: 50%;
+        }
+
+        &:not([data-label="Nama"]) {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 1.5rem;
+        text-align: left;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__empty {
+    display: table-cell;
+    color: map-get($map: a.$clr, $key: dark);
+
+    &.table__empty--false {
+      display: none;
+    }
+  }
+
+  td.table__empty {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 600;
+  }
+}

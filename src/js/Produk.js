@@ -6,7 +6,6 @@ document.getElementById("header-title").textContent = "Produk";
 
 const formAddProduct = document.getElementById("form-add-product");
 const formEditProduct = document.getElementById("form-edit-product");
-const filterToggler = document.getElementById("filter-toggler");
 
 const prodImg = document.getElementById("prod-image");
 const prodName = document.getElementById("prod-name");
@@ -35,15 +34,6 @@ cancelBtns.forEach((btn) => {
     document.getElementById("add-product").classList.remove("appear");
     document.getElementById("edit-product").classList.remove("appear");
   });
-});
-
-filterToggler.addEventListener("click", function () {
-  this.classList.toggle("filter__toggler--expand");
-  if (this.classList.contains("filter__toggler--expand")) {
-    this.setAttribute("aria-expanded", true);
-  } else {
-    this.setAttribute("aria-expanded", false);
-  }
 });
 
 prodImg.addEventListener("change", function (e) {

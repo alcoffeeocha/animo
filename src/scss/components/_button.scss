@@ -3,13 +3,12 @@
   &-primary {
     font-weight: 600;
     text-decoration: none;
-    border-radius: 2rem;
     background: map-get(a.$clr, ctaActive);
+    border-radius: 2rem;
     border-width: 1px;
     border-style: solid;
     border-color: map-get(a.$clr, ctaActive);
     color: #fff !important;
-    border-radius: 2rem;
     outline: none;
 
     &:active {
@@ -26,6 +25,12 @@
     &:disabled {
       border-color: rgba(map-get(a.$clr, ctaActive), 0.5);
       background: rgba(map-get(a.$clr, ctaActive), 0.5);
+    }
+
+    &__add-cat {
+      padding: 0.2rem 2rem;
+      font-weight: 600;
+      font-size: 2.4rem;
     }
   }
   &-secondary {
@@ -78,5 +83,23 @@
     font-size: 2.6rem;
     padding: 0 1rem;
     font-weight: 600;
+  }
+
+  &-grey {
+    font-weight: 600;
+    color: map-get(a.$clr, dark);
+    font-size: 2.4rem;
+    background: map-get(a.$clr, ctaCancel);
+    border-color: map-get(a.$clr, ctaCancel);
+    outline: none;
+    border-radius: 2rem;
+    border-width: 1px;
+    border-style: solid;
+
+    &:hover,
+    &:focus {
+      background: #cecece;
+      border-color: #cecece;
+    }
   }
 }

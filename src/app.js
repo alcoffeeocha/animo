@@ -7,8 +7,18 @@ document.head.insertAdjacentHTML("beforeend", htmlHead);
 
 const header = document.getElementById("header");
 const sidebar = document.getElementById("sidebar");
-
 let toggler = null;
+const filterToggler = document.getElementById("filter-toggler");
+if (filterToggler) {
+  filterToggler.addEventListener("click", function () {
+    this.classList.toggle("filter__toggler--expand");
+    if (this.classList.contains("filter__toggler--expand")) {
+      this.setAttribute("aria-expanded", true);
+    } else {
+      this.setAttribute("aria-expanded", false);
+    }
+  });
+}
 
 if (header) injectHeader();
 if (sidebar) injectSidebar();

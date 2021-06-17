@@ -69,10 +69,6 @@
       width: 100vw;
       height: 100%;
       border-radius: 0;
-      // width: 85rem;
-      // // height: 54rem;
-      // max-width: 95vw;
-      // max-height: 100vh;
       padding: 2rem;
 
       @include a.mq(sm) {
@@ -168,6 +164,149 @@
     button {
       padding: 1rem 4rem;
       @include a.typeSpace(h4);
+    }
+  }
+
+  &__edit-stock {
+    .dialog__box {
+      width: 100vw;
+      height: 100%;
+      border-radius: 0;
+      padding: 6rem 1rem;
+
+      @include a.mq(sm) {
+        width: 80vw;
+        height: max-content;
+        border-radius: 3.5rem;
+        padding: 4rem 5rem 3rem;
+      }
+
+      @include a.mq(md) {
+        width: 85vw;
+      }
+
+      @include a.mq(lg) {
+        width: 80rem;
+      }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      h2 {
+        font-weight: 300;
+        font-size: 3.8rem;
+        color: map-get($map: a.$clr, $key: dark);
+
+        @include a.mq(md) {
+          font-size: 4.8rem;
+        }
+      }
+
+      h3 {
+        font-weight: 300;
+        font-size: 2.8rem;
+        color: map-get($map: a.$clr, $key: dark);
+
+        @include a.mq(md) {
+          font-size: 3.6rem;
+        }
+      }
+
+      .input-stock {
+        font-weight: 700;
+        font-size: 3.6rem;
+        outline: none;
+        border: none;
+        text-align: center;
+        padding: 0 0.5rem;
+        width: 40%;
+        -moz-appearance: textfield;
+        /* Chrome, Safari, Edge, Opera */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+
+      .input-date {
+        font-weight: 600;
+        font-size: 3.6rem;
+        border-radius: 0.8rem;
+        text-align: right;
+        outline: none;
+        border: none;
+        -moz-appearance: textfield;
+        /* Chrome, Safari, Edge, Opera */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+
+      [data-diperbarui="date"] {
+        cursor: pointer;
+
+        input {
+          opacity: 0;
+          position: absolute;
+        }
+      }
+
+      [data-diperbarui="tanggal"],
+      [data-diperbarui="bulan"] {
+        width: 7rem;
+      }
+
+      [data-diperbarui="tahun"] {
+        width: 13rem;
+      }
+
+      #plus-btn,
+      #minus-btn {
+        display: inline-block;
+        padding: 0 1.6rem;
+        font-weight: 700;
+        font-size: 3.6rem;
+        cursor: pointer;
+      }
+
+      #minus-btn {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+      }
+
+      #plus-btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+      }
+
+      button {
+        font-weight: 600;
+        font-size: 2.4rem;
+        padding: 1rem 4rem;
+      }
+
+      .sub-bahan {
+        margin-bottom: 3.6rem;
+      }
+
+      .satuan {
+        margin-bottom: 4rem;
+      }
+
+      .pick-date {
+        margin-bottom: 4.5rem;
+      }
     }
   }
 

@@ -6,7 +6,7 @@
   border-collapse: collapse;
   width: 100%;
 
-  @include a.mq(md) {
+  @include a.mq(lg) {
     margin-top: 7rem;
   }
 
@@ -39,16 +39,35 @@
   &__bahan {
     thead {
       display: none;
-      @include a.mq(lg) {
+    }
+
+    & {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+
+      @include a.mq(sm) {
+        width: 60%;
+      }
+
+      @include a.mq(md) {
+        width: 50%;
+      }
+    }
+
+    @media only screen and (min-width: 992px) {
+      & {
+        width: 100%;
+        display: table;
+      }
+
+      thead {
         display: table-header-group;
       }
     }
 
-    @media only screen and (max-width: 61.9rem) {
-      & {
-        display: block;
-        width: 100%;
-      }
+    @media only screen and (max-width: 991px) {
       tbody,
       tr,
       td {
@@ -91,6 +110,23 @@
         text-align: left;
         font-weight: 400;
       }
+    }
+  }
+
+  &__stok {
+    th,
+    td {
+      font-size: 1.75rem;
+    }
+    @media only screen and (max-width: 991px) {
+      th,
+      td {
+        font-size: 1.3rem;
+      }
+    }
+    span {
+      display: inline-block;
+      width: 5.5rem;
     }
   }
 

@@ -48,15 +48,15 @@
       width: 100%;
 
       @include a.mq(sm) {
-        width: 60%;
+        width: 75%;
       }
 
       @include a.mq(md) {
-        width: 50%;
+        width: 60%;
       }
     }
 
-    @media only screen and (min-width: 992px) {
+    @media only screen and (min-width: 991px) {
       & {
         width: 100%;
         display: table;
@@ -79,11 +79,11 @@
       td {
         font-size: 1.75rem;
       }
-
       tr {
         margin-bottom: 1.5rem;
 
-        [data-label="Nama"] {
+        [data-label="Nama"],
+        [data-label="Sub-Bahan"] {
           background: #f2d5bb;
         }
       }
@@ -127,6 +127,41 @@
     span {
       display: inline-block;
       width: 5.5rem;
+    }
+  }
+
+  &__resep {
+    margin-top: 2rem;
+
+    th,
+    td {
+      font-size: 1.75rem;
+    }
+
+    @media only screen and (min-width: 991px) {
+      th:not(:first-child),
+      td:not(:first-child) {
+        text-align: center;
+      }
+    }
+  }
+
+  &__calc {
+    &-label,
+    &-value {
+      font-size: 1.7rem;
+      font-weight: 600;
+      @include a.mq(md) {
+        font-size: 2rem;
+      }
+    }
+
+    &-label {
+      color: map-get($map: a.$clr, $key: dark);
+    }
+
+    &-value {
+      color: #d97d0d;
     }
   }
 

@@ -361,4 +361,15 @@
       }
     }
   }
+
+  &__add-recipe {
+    .dialog__box {
+      width: 91rem;
+      // height: max-content;
+      height: 544px;
+      max-height: 90vh;
+      border-radius: 3.5rem;
+      padding: 2.6rem 3rem 5.2rem 5rem;
+    }
+  }
 }

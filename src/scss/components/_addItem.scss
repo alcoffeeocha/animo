@@ -22,4 +22,14 @@
       font-size: 2.6rem;
     }
   }
+
+  &__resep {
+    margin-bottom: 0.6rem;
+    justify-content: center;
+
+    @include a.mq(xl) {
+      justify-content: flex-start;
+      margin-bottom: 0;
+    }
+  }
 }

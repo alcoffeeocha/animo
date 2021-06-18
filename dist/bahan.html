@@ -442,7 +442,9 @@
             });
             if (response.ok) {
               Swal.fire("Terhapus", "Sub Bahan berhasil terhapus", "success");
+              location.reload();
             } else {
+              location.reload();
               Swal.fire({
                 icon: "error",
                 title: "Oops...",

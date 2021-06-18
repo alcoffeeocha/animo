@@ -113,3 +113,33 @@ document.querySelectorAll(".dialog__box").forEach((box) => {
     e.stopPropagation();
   });
 });
+
+// FORMAT ALL NUMBER
+const toRupiah = new Intl.NumberFormat("id-ID", {
+  style: "currency",
+  currency: "IDR",
+  currencyDisplay: "narrowSymbol",
+});
+
+const toDecimal = new Intl.NumberFormat("id-ID", {
+  style: "decimal",
+});
+
+const elsToIDR = document.querySelectorAll("[data-convert-to=rupiah]");
+const elsToDecimal = document.querySelectorAll("[data-convert-to=decimal]");
+
+if (elsToIDR.length > 0) {
+  elsToIDR.forEach((el) => {
+    let num = parseInt(el.textContent.trim());
+    let converted = toRupiah.format(num);
+    el.textContent = converted;
+  });
+}
+
+if (elsToDecimal.length > 0) {
+  elsToDecimal.forEach((el) => {
+    let num = parseInt(el.textContent.trim());
+    let converted = toDecimal.format(num);
+    el.textContent = converted;
+  });
+}

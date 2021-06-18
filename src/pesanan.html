@@ -75,6 +75,7 @@
                         tanggal: '2021-03-12',
                         nama: 'Jason',
                         produk: 'Cookies Keju',
+                        idProduk:'keju123',
                         jumlah: 2,
                         statusBayar: 'Belum Lunas',
                         statusPesan: 'Dibatalkan',
@@ -106,6 +107,7 @@
                         tanggal: '2021-02-13',
                         nama: 'Rilley',
                         produk: 'Cookies Cokelat',
+                        idProduk:'cokelat321',
                         jumlah: 5,
                         statusBayar: 'Lunas',
                         statusPesan: 'Sudah Diterima',
@@ -136,6 +138,7 @@
                         id: 'pesanan2',
                         nama: 'Olivia',
                         produk: 'Kubimsu',
+                        idProduk:'kubimsu444',
                         jumlah: 3,
                         tanggal: '2020-04-15',
                         statusBayar: 'Belum Lunas',
@@ -191,7 +194,7 @@
                           type="radio"
                           id="prod1"
                           name="product"
-                          value="Cookies Keju"
+                          value="keju123"
                         />
                         <label for="prod1">Cookies Keju</label>
                       </div>
@@ -200,7 +203,7 @@
                           type="radio"
                           id="prod2"
                           name="product"
-                          value="Cookies Cokelat"
+                          value="cokelat321"
                         />
                         <label for="prod2">Cookies Cokelat</label>
                       </div>
@@ -209,7 +212,7 @@
                           type="radio"
                           id="prod3"
                           name="product"
-                          value="Kubimsu"
+                          value="kubimsu444"
                         />
                         <label for="prod3">Kubimsu</label>
                       </div>
@@ -218,7 +221,7 @@
                           type="radio"
                           id="prod4"
                           name="product"
-                          value="Josu"
+                          value="josu231"
                         />
                         <label for="prod4">Josu</label>
                       </div>
@@ -227,7 +230,7 @@
                           type="radio"
                           id="prod5"
                           name="product"
-                          value="Kopi Susu"
+                          value="kopisusu424"
                         />
                         <label for="prod5">Kopi Susu</label>
                       </div>
@@ -236,7 +239,7 @@
                           type="radio"
                           id="prod6"
                           name="product"
-                          value="Cookies Kacang"
+                          value="kacang321"
                         />
                         <label for="prod6">Cookies Kacang</label>
                       </div>
@@ -245,7 +248,7 @@
                           type="radio"
                           id="prod7"
                           name="product"
-                          value="Nasi Goreng"
+                          value="nasgor222"
                         />
                         <label for="prod6">Nasi Goreng</label>
                       </div>
@@ -416,11 +419,14 @@
         o.onclick = () => {
           productSelected.textContent = o.querySelector("label").textContent;
           productOptions.classList.remove("active");
+          // check input dari element yang user klik, value daripada "name=product" akan berubah
+          o.querySelector("input").checked = true;
         };
       });
 
       function editPesanan({
         id,
+        idProduk,
         nama,
         produk,
         jumlah,
@@ -439,9 +445,10 @@
               el.value = nama;
               break;
             case "product":
-              if (el.value.toLowerCase() === produk.toLowerCase()) {
+              if (el.value === idProduk) {
                 el.checked = true;
-                productSelected.textContent = el.value;
+                // mengubah nama produk yang terpilih (hanya sekedar tampilan)
+                productSelected.textContent = el.nextElementSibling.textContent;
               }
               break;
             case "qty":

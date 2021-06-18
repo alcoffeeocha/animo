@@ -196,6 +196,46 @@
                 <p class="text-center mt-3">Tambah Foto Produk</p>
               </div>
               <div class="form-group">
+                <label class="form-label" for="product-category"
+                  >Kategori Produk</label
+                >
+                <div class="dropdown__box dropdown__resep">
+                  <div class="dropdown__options" data-down-add="category-options">
+                    <!-- ubah semua value, id, for+isi label nya -->
+                    <div class="dropdown__option">
+                      <input
+                        type="radio"
+                        id="cat1"
+                        name="category"
+                        value="makanan246"
+                        checked="true"
+                      />
+                      <label for="cat1">Makanan</label>
+                    </div>
+                    <div class="dropdown__option">
+                      <input
+                        type="radio"
+                        id="cat2"
+                        name="category"
+                        value="minuman222"
+                      />
+                      <label for="cat2">Minuman</label>
+                    </div>
+                    <div class="dropdown__option">
+                      <input
+                        type="radio"
+                        id="cat3"
+                        name="category"
+                        value="side555"
+                      />
+                      <label for="cat3">Side Dish</label>
+                    </div>
+                  </div>
+                  <!-- js will dynamically change the text inside -->
+                  <div class="dropdown__selected" data-down-add="category-selected"></div>
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="form-label" for="product-name">Nama Produk</label>
                 <input
                   id="prod-name"
@@ -205,6 +245,8 @@
                   placeholder="Nama"
                 />
               </div>
+
+
               <div class="form-group">
                 <label class="form-label" for="product-size">Ukuran</label>
                 <div class="d-flex gap-2">
@@ -316,6 +358,46 @@
                 <p class="mt-3 text-center">doctor.jpeg</p>
               </div>
               <div class="form-group">
+                <label class="form-label" for="product-category"
+                  >Kategori Produk</label
+                >
+                <div class="dropdown__box dropdown__resep">
+                  <div class="dropdown__options" data-down-edit="category-options">
+                    <!-- ubah semua value, id, for+isi label nya -->
+                    <div class="dropdown__option">
+                      <input
+                        type="radio"
+                        id="cat1"
+                        name="category"
+                        value="makanan246"
+                        checked="true"
+                      />
+                      <label for="cat1">Makanan</label>
+                    </div>
+                    <div class="dropdown__option">
+                      <input
+                        type="radio"
+                        id="cat2"
+                        name="category"
+                        value="minuman222"
+                      />
+                      <label for="cat2">Minuman</label>
+                    </div>
+                    <div class="dropdown__option">
+                      <input
+                        type="radio"
+                        id="cat3"
+                        name="category"
+                        value="side555"
+                      />
+                      <label for="cat3">Side Dish</label>
+                    </div>
+                  </div>
+                  <!-- js will dynamically change the text inside -->
+                  <div class="dropdown__selected" data-down-edit="category-selected"></div>
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="form-label" for="product-name-edit"
                   >Nama Produk</label
                 >
@@ -372,5 +454,8 @@
         </div>
       </dialog>
     </div>
+    <script>
+
+    </script>
   </body>
 </html>

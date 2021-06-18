@@ -12,18 +12,29 @@
   &__area {
     display: block;
     text-align: center;
-    line-height: 16rem;
+    line-height: 11rem;
     cursor: pointer;
     background: map-get(a.$clr, placeholder);
     border-radius: 2rem;
-    width: 16rem;
-    height: 16rem;
+    width: 11rem;
+    height: 11rem;
     font-weight: 400;
     font-size: 12rem;
     color: rgba(map-get(a.$clr, dark), 0.2);
+    margin: 0 auto;
+
+    @include a.mq(md) {
+      line-height: 16rem;
+      width: 16rem;
+      height: 16rem;
+    }
   }
 
   p {
-    font-size: 2rem;
+    font-size: 1.6rem;
+
+    @include a.mq(sm) {
+      font-size: 2rem;
+    }
   }
 }

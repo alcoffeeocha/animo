@@ -43,11 +43,11 @@ productSelected.onclick = () => {
 };
 
 productList.forEach((o) => {
-  o.onclick = () => {
-    productSelected.textContent = o.querySelector("label").textContent;
+  o.addEventListener("click", function () {
+    productSelected.textContent = this.querySelector("label").textContent;
     productOptions.classList.remove("active");
-    o.querySelector("input").checked = true;
-  };
+    this.querySelector("input").checked = true;
+  });
 });
 
 if (!isProdukExist) {
@@ -148,11 +148,20 @@ const inputEls = {
   },
 };
 
-productSelected.textContent = inputEls.product.els.value;
+inputEls.product.els.forEach((el) => {
+  if (el.checked) {
+    productSelected.textContent = el.nextElementSibling.textContent;
+  }
+});
 
 // CHECKER
 const checkForm1 = () => {
-  let value = inputEls.product.els.value;
+  let value;
+  inputEls.product.els.forEach((el) => {
+    if (el.checked) {
+      value = el.nextElementSibling.textContent;
+    }
+  });
   if (!value || value === "") {
     showFeedback("Produk wajib dipilih");
     return false;

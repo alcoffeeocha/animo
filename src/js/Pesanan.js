@@ -21,7 +21,8 @@ addOrderCta.addEventListener("click", () => {
 
   if (products.length > 0) {
     products[0].checked = true;
-    document.getElementById("product-selected").textContent = products[0].value;
+    document.getElementById("product-selected").textContent =
+      products[0].nextElementSibling.textContent;
   } else {
     Swal.fire({
       title: "Tidak ada produk",

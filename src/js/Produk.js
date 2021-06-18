@@ -28,6 +28,26 @@ const prodUnitEdit = document.getElementById("prod-unit-edit");
 const prodPriceEdit = document.getElementById("prod-price-edit");
 const uploadAreaEdit = document.getElementById("upload-area-edit");
 
+const addCatOptions = document.querySelector(
+  "[data-down-add='category-options']"
+);
+const addCatSelected = document.querySelector(
+  "[data-down-add='category-selected']"
+);
+const addCatProdList = document.querySelectorAll(
+  "[data-down-add='category-options'] .dropdown__option"
+);
+
+const editCatOptions = document.querySelector(
+  "[data-down-edit='category-options']"
+);
+const editCatSelected = document.querySelector(
+  "[data-down-edit='category-selected']"
+);
+const editCatProdList = document.querySelectorAll(
+  "[data-down-edit='category-options'] .dropdown__option"
+);
+
 cancelBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     document.getElementById("add-product").classList.remove("appear");
@@ -142,3 +162,73 @@ document.querySelectorAll("[data-id='backToForm']").forEach((back) => {
     this.parentElement.classList.remove("dialog__feedback--appear");
   });
 });
+
+// HANDLE ADD PRODUCT CAT DROPDOWN
+let addCatProducts = addCatOptions.querySelectorAll("input");
+addCatProducts.forEach((el) => {
+  if (el.checked) {
+    addCatSelected.textContent = el.nextElementSibling.textContent;
+    return;
+  }
+});
+if (![...addCatProducts].some((el) => el.checked)) {
+  addCatProducts[0].checked;
+  addCatSelected.textContent = addCatProducts[0].nextElementSibling.textContent;
+}
+addCatSelected.onclick = () => {
+  addCatOptions.classList.toggle("active");
+};
+addCatProdList.forEach((o) => {
+  o.onclick = function () {
+    addCatSelected.textContent = this.querySelector("label").textContent;
+    addCatOptions.classList.remove("active");
+    this.querySelector("input").checked = true;
+  };
+});
+
+// HANDLE EDIT PRODUCT CAT DROPDOWN
+let editCatProducts = editCatOptions.querySelectorAll("input");
+editCatProducts.forEach((el) => {
+  if (el.checked) {
+    editCatSelected.textContent = el.nextElementSibling.textContent;
+    return;
+  }
+});
+if (![...editCatProducts].some((el) => el.checked)) {
+  editCatProducts[0].checked;
+  editCatSelected.textContent =
+    editCatProducts[0].nextElementSibling.textContent;
+}
+editCatSelected.onclick = () => {
+  editCatOptions.classList.toggle("active");
+};
+editCatProdList.forEach((o) => {
+  o.onclick = function () {
+    editCatSelected.textContent = this.querySelector("label").textContent;
+    editCatOptions.classList.remove("active");
+    this.querySelector("input").checked = true;
+  };
+});
+
+// addCatSelected.onclick = () => {
+//   addOptions.classList.toggle("active");
+// };
+// editCatSelected.onclick = () => {
+//   editOptions.classList.toggle("active");
+// };
+// addCatProdList.forEach((o) => {
+//   o.onclick = () => {
+//     addSelected.textContent = o.querySelector("label").textContent;
+//     addOptions.classList.remove("active");
+
+//     o.querySelector("input").checked = true;
+//   };
+// });
+// editCatProdList.forEach((o) => {
+//   o.onclick = () => {
+//     editSelected.textContent = o.querySelector("label").textContent;
+//     editOptions.classList.remove("active");
+
+//     o.querySelector("input").checked = true;
+//   };
+// });

@@ -179,4 +179,26 @@
     font-size: 2.8rem;
     font-weight: 600;
   }
+
+  &__sub-bahan {
+    margin-top: 0;
+    overflow-x: auto;
+    width: max-content;
+
+    th {
+      text-align: center;
+    }
+
+    input {
+      border-radius: 1rem;
+      border: 0.2px solid #733e32;
+      text-align: center;
+      outline: none;
+      width: 10.5rem;
+      padding: 0.7rem 0;
+      &::placeholder {
+        color: rgba(#1f1f1f, 65%);
+      }
+    }
+  }
 }

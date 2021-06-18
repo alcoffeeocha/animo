@@ -85,4 +85,34 @@
       }
     }
   }
+
+  &__resep {
+    font-weight: 600;
+    font-size: 1.8rem;
+    width: 85vw;
+
+    @include a.mq(sm) {
+      width: 34.6rem;
+    }
+    .dropdown__selected {
+      width: 100%;
+    }
+    .dropdown__options {
+      width: 100%;
+      border-radius: 2rem;
+
+      label {
+        cursor: pointer;
+      }
+
+      .dropdown__option:hover {
+        color: #802302;
+        background: #fff;
+      }
+
+      &.active {
+        max-height: 22rem;
+      }
+    }
+  }
 }

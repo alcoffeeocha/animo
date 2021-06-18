@@ -19,7 +19,6 @@ const uploadArea = document.getElementById("upload-area");
 const formAddProductCategory = document.getElementById("form-add-prod-cat");
 const prodCat = document.getElementById("prod-cat");
 const prodCatSave = document.getElementById("prod-cat-save");
-const productPrice = document.getElementById("product-price");
 
 const productId = document.getElementById("prod-id");
 const prodImageEdit = document.getElementById("prod-image-edit");
@@ -96,22 +95,6 @@ prodCatSave.addEventListener("keyup", (e) => {
     if (maySaveCat) formAddProductCategory.submit();
   }
 });
-
-productPrice.textContent = convertToRupiah(productPrice.textContent);
-
-function convertToRupiah(angka) {
-  var rupiah = "";
-  var angkarev = angka.toString().split("").reverse().join("");
-  for (var i = 0; i < angkarev.length; i++)
-    if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + ".";
-  return (
-    "Rp. " +
-    rupiah
-      .split("", rupiah.length - 1)
-      .reverse()
-      .join("")
-  );
-}
 
 formEditProduct.addEventListener("submit", (e) => {
   let msg = [];

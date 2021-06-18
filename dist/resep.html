@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
     <title>Animo | Resep</title>
-  <script defer="defer" src="app.0134c83d.js"></script><script defer="defer" src="resep.40281428.js"></script><link href="main.ea208686.css" rel="stylesheet"/></head>
+  <script defer="defer" src="app.0134c83d.js"></script><script defer="defer" src="resep.e5194e20.js"></script><link href="main.b2f80cfc.css" rel="stylesheet"/></head>
 
   <body>
     <div class="container-xxl position-relative p-0 d-flex">
@@ -89,7 +89,7 @@
               <div class="filter filter__resep" id="dropdown-kategori-bahan">
                 <p class="filter__label mb-3">Kategori Bahan</p>
                 <button class="filter__toggler" aria-expanded="false">
-                  <h4>Kategori Bahan</h4>
+                  <h4>Bahan Baku</h4>
                   <span>&gt</span>
                 </button>
                 <!-- data-filter-name nanti dipakai untuk mengecek apakah terdapat item di dalam dropdown ini -->
@@ -231,11 +231,194 @@
       <dialog class="dialog dialog__add-recipe" id="add-recipe" open>
         <div class="dialog__backdrop">
           <div class="dialog__box">
-            <h2>lagi dibuat</h2>
+            <div id="add-recipe-feedback" class="dialog__feedback">
+              <ul class="dialog__feedback-msg"></ul>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                data-id="backToForm"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"
+                />
+              </svg>
+            </div>
+            <!-- THE FORM !!! -->
+            <form
+              action="/resep/input"
+              method="GET"
+              name="add-recipe"
+              id="add-recipe-form"
+            >
+              <header class="row">
+                <div class="col-12 col-md-4">
+                  <h1 class="header__title">Resep</h1>
+                  <h4 data-id="header-date" class="header__date">
+                    <span class="header__day"></span>
+                  </h4>
+                </div>
+                <div class="col-12 col-md-8">
+                  <h1 class="dialog__product mt-3" id="product-name"></h1>
+                </div>
+              </header>
+              <main class="dialog__main">
+                <section class="dialog__page-1" data-form-page="1">
+                  <h3 class="fo-semi fo-18">
+                    Pilih produk yang ingin diberikan resep
+                  </h3>
+                  <div class="dropdown__box dropdown__resep">
+                    <div class="dropdown__options" id="product-options">
+                      <!-- ubah semua value, id, for+isi label nya -->
+                      <div class="dropdown__option">
+                        <input
+                          type="radio"
+                          id="prod1"
+                          name="product"
+                          value="Cookies Keju"
+                          checked="true"
+                        />
+                        <label for="prod1">Cookies Keju</label>
+                      </div>
+                      <div class="dropdown__option">
+                        <input
+                          type="radio"
+                          id="prod2"
+                          name="product"
+                          value="Cookies Cokelat"
+                        />
+                        <label for="prod2">Cookies Cokelat</label>
+                      </div>
+                      <div class="dropdown__option">
+                        <input
+                          type="radio"
+                          id="prod3"
+                          name="product"
+                          value="Kopi Susu"
+                        />
+                        <label for="prod3">Kopi Susu</label>
+                      </div>
+                    </div>
+                    <div class="dropdown__selected" id="product-selected"></div>
+                  </div>
+                </section>
+
+                <section class="dialog__page-2" data-form-page="2">
+                  <input type="hidden" name="subMaterials" />
+                  <h3 class="fo-semi fo-18">
+                    Pilih sub bahan untuk membuat produk tersebut
+                  </h3>
+                  <!-- ubah label, value, data-submaterial-id dengan id sub bahannya, data-unit dengan satuan sub bahan tersebut -->
+                  <div class="checkbox">
+                    <label class="checkbox__container"
+                      >Tepung Terigu
+                      <input
+                        type="checkbox"
+                        value="Tepung Terigu"
+                        data-submaterial-id="terigu222"
+                        data-unit="gram"
+                      />
+                      <span class="checkbox__mark"></span>
+                    </label>
+                    <label class="checkbox__container"
+                      >Brown Sugar
+                      <input
+                        type="checkbox"
+                        value="Brown Sugar"
+                        data-submaterial-id="sugar222"
+                        data-unit="cup"
+                      />
+                      <span class="checkbox__mark"></span>
+                    </label>
+                    <label class="checkbox__container"
+                      >Garam Kosher
+                      <input
+                        type="checkbox"
+                        value="Garam Kosher"
+                        data-submaterial-id="kosher321"
+                        data-unit="sendok"
+                      />
+                      <span class="checkbox__mark"></span>
+                    </label>
+
+                    <label class="checkbox__container"
+                      >Ekstrak Vanili
+                      <input
+                        type="checkbox"
+                        value="Ekstrak Vanili"
+                        data-submaterial-id="vanili001"
+                        data-unit="sendok"
+                      />
+                      <span class="checkbox__mark"></span>
+                    </label>
+                    <label class="checkbox__container"
+                      >Gula Manis
+                      <input
+                        type="checkbox"
+                        value="Gula Manis"
+                        data-submaterial-id="manis444"
+                        data-unit="sendok"
+                      />
+                      <span class="checkbox__mark"></span>
+                    </label>
+                  </div>
+                </section>
+
+                <section class="dialog__page-3" data-form-page="3">
+                  <div id="results"></div>
+                  <h3 class="fo-semi fo-18 text-center">Data Sub Bahan</h3>
+                  <!-- js will handle this table, no need injection -->
+                  <table class="table table__sub-bahan" id="table-sub-bahan">
+                    <thead></thead>
+                    <tbody>
+                      <tr data-row="quantity"></tr>
+                      <tr data-row="price"></tr>
+                      <tr data-row="recipe"></tr>
+                    </tbody>
+                  </table>
+                </section>
+
+                <section class="dialog__page-4" data-form-page="4">
+                  <h3 class="fo-semi fo-18" for="porsi">Jumlah porsi</h3>
+                  <p class="fo-light fo-12">
+                    Berapa jumlah porsi untuk produk (dalam 1 resep) yang dapat
+                    dihasilkan, contoh: 8
+                  </p>
+                  <input
+                    type="number"
+                    name="porsi"
+                    id="porsi"
+                    min="1"
+                    value="0"
+                  />
+                </section>
+              </main>
+
+              <footer class="dialog__footer">
+                <div class="dialog__cta">
+                  <!-- js will dynamically change these button type and text -->
+                  <button
+                    id="tombol-prev"
+                    type="button"
+                    class="button-secondary"
+                  >
+                    Batal
+                  </button>
+                  <button id="tombol-next" class="button-primary" type="button">
+                    Lanjut
+                  </button>
+                </div>
+              </footer>
+            </form>
           </div>
         </div>
       </dialog>
     </div>
-    <script></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"
+    ></script>
   </body>
 </html>

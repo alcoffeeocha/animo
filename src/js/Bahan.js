@@ -8,16 +8,26 @@ const bahanAllItems = document.getElementById("bahan-all-items");
 const bahanAddItem = document.getElementById("bahan-add-item");
 const addMaterialCta = document.getElementById("add-material");
 const formAddMaterial = document.forms["form-add-material"];
+let cats = formAddMaterial.elements["category"].querySelectorAll("option");
+if (cats.length < 1) {
+  addMaterialCta.innerHTML = "<h4>Tambahkan kategori bahan</h4>";
+  addMaterialCta.style.pointerEvents = "none";
+}
 
 addMaterialCta.addEventListener("click", () => {
-  bahanAllItems.classList.add("d-none");
+  if (cats.length < 1) {
+    Swal.fire({
+      icon: "warning",
+      title: "Mohon tambahkan kategori bahan terlebih dahulu",
+    });
+    return;
+  }
   formAddMaterial.forEach((el) => {
-    if (el.name === "category" || el.name === "unit") {
-      el[0].selected = true;
-      return;
+    if (el.type === "text") {
+      el.value = "";
     }
-    el.value = null;
   });
+  bahanAllItems.classList.add("d-none");
   bahanAddItem.classList.add("d-block");
   document.getElementById("header-title").textContent = "Tambah Bahan";
 });

@@ -101,6 +101,14 @@
       width: 100%;
       border-radius: 2rem;
 
+      &::-webkit-scrollbar {
+        width: 0.8rem;
+        background: rgb(243, 241, 241);
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #1f1f1f;
+      }
+
       label {
         cursor: pointer;
       }

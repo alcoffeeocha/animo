@@ -1,0 +1,138 @@
+.rekap {
+  .rekap__none {
+    display: block;
+    /* Belum ada resep yang ditambahkan. */
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+    text-align: center;
+    color: #1f1f1f;
+  }
+
+  .rekapContainer {
+    display: flex;
+    // background-color: #1F1F1F;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
+
+  .rekap__pilihanContainer {
+    display: flex;
+    // background-color: #1F1F1F;
+    justify-content: space-between;
+  }
+
+  .rekap__topContainerText {
+    font-size: 18px;
+    font-family: Poppins;
+    color: #1f1f1f;
+    font-weight: regular;
+  }
+
+  .rekap_pilihan {
+    width: 320px;
+    height: 46px;
+    border: 1px solid #bababa;
+    border-radius: 16px;
+
+    /* Pilih Produk */
+    padding: 4px 24px 4px 24px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 36px;
+
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+
+    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png")
+      white no-repeat 98.5% !important; /* !important used for overriding all other customisations */
+    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png")
+      white no-repeat calc(100% - 25px) !important; /* Better placement regardless of input width */
+  }
+
+  .perhitungan {
+    background-color: none;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  .rekapPerhitungan {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500px;
+    font-size: 28px;
+    line-height: Auto;
+    color: #1f1f1f;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+  .detailPerhitungan {
+    font-family: Poppins;
+    font-size: 20px;
+    text-align: left;
+    color: #1f1f1f;
+  }
+  .detailTanggal {
+    font-weight: Bold;
+  }
+  .rekapCheckBox {
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 40px 70px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+    hr {
+      size: 8px;
+      color: #1f1f1f;
+    }
+  }
+  input[type="checkbox"] {
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  input[type="checkbox"]:last-of-type {
+    margin-left: 15px;
+  }
+  label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: #160e4e;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+  }
+
+  .downloadRekap {
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    p {
+      font-size: 20px;
+      font-family: Poppins;
+      color: #1f1f1f;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      background-color: #802302;
+      outline: 0;
+      border: 0;
+      margin-right: 25px;
+      color: white;
+      margin-right: 30px;
+      margin-top: 15px;
+    }
+  }
+}

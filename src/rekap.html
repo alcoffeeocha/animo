@@ -15,18 +15,146 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+    <style>
+      .spinner {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      .spinner div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border: 8px solid #d97d0d;
+        border-radius: 50%;
+        animation: moveIt 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #d97d0d transparent transparent transparent;
+      }
+      .spinner div:nth-child(1) {
+        animation-delay: -0.45s;
+      }
+      .spinner div:nth-child(2) {
+        animation-delay: -0.3s;
+      }
+      .spinner div:nth-child(3) {
+        animation-delay: -0.15s;
+      }
+      @keyframes moveIt {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
     <title>Animo | Rekap</title>
   </head>
 
   <body>
+    <div
+      id="blank"
+      style="
+        position: fixed;
+        z-index: 100000;
+        width: 100vw;
+        height: 100%;
+        background-color: white;
+        place-items: center;
+        display: grid;
+      "
+    >
+      <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <div class="container-xxl position-relative p-0 d-flex">
       <div class="sidebar-container">
         <sidebar class="sidebar" id="sidebar"></sidebar>
       </div>
       <main class="main">
         <header class="header" id="header"></header>
-        <div class="row"></div>
+        <section class="rekap">
+          <div class="rekapContainer">
+            <div class="rekap__pilihanContainer">
+              <div
+                style="margin-right: 43px"
+                class="rekap__pilihanContainerTop"
+              >
+                <div class="rekap__topContainerText">Mau Rekap Apa?</div>
+                <select name="cars" class="rekap_pilihan" id="cars">
+                  <option value="Bahan Baku">Bahan Baku</option>
+                  <option value="Bahan Pendukung">Bahan Pendukung</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="perhitungan">
+            <h2 class="rekapPerhitungan">Pilih Perhitungan yang diinginkan</h2>
+            <p class="detailPerhitungan">
+              <span class="detailTanggal">Detail : </span>
+              <span>Rekap ke- 001 tanggal 14 Maret 2021</span>
+            </p>
+          </div>
+          <div class="checkBoxContainer">
+            <div class="rekapCheckBox">
+              <form action="" method="POST">
+                <input type="checkbox" name="option1" id="penjualan" />
+                <label for="penjualan">Penjualan</label>
+                <br />
+                <input type="checkbox" name="option2" id="pemasukan" />
+                <label for="pemasukan">Pemasukan</label>
+                <br />
+                <input type="checkbox" name="option3" id="pengeluaran" />
+                <label for="pengeluaran">Pengeluaran</label>
+                <br />
+                <input type="checkbox" name="option4" id="profit-margin" />
+                <label for="profit-margin">Profit Margin</label>
+                <br />
+                <hr />
+                <input
+                  type="checkbox"
+                  id="option-all"
+                  onchange="checkAll(this)"
+                />
+                <label for="option-all">Centang Semua</label>
+                <br />
+              </form>
+            </div>
+
+            <div class="downloadRekap">
+              <p>Klik Tombol dibawah ini untuk mengunduh file PDF</p>
+              <button type="button" class="btnDownload">Download</button>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
+    <script>
+      window.onload = () => {
+        document.getElementById("blank").style.display = "none";
+      };
+      var checkboxes = document.querySelectorAll("input[type = 'checkbox']");
+
+      function checkAll(myCheckbox) {
+        if (myCheckbox.checked == true) {
+          checkboxes.forEach(function (checkbox) {
+            checkbox.checked = true;
+          });
+        } else {
+          checkboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+          });
+        }
+      }
+    </script>
   </body>
 </html>

@@ -15,10 +15,66 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+    <style>
+      .spinner {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      .spinner div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border: 8px solid #d97d0d;
+        border-radius: 50%;
+        animation: moveIt 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #d97d0d transparent transparent transparent;
+      }
+      .spinner div:nth-child(1) {
+        animation-delay: -0.45s;
+      }
+      .spinner div:nth-child(2) {
+        animation-delay: -0.3s;
+      }
+      .spinner div:nth-child(3) {
+        animation-delay: -0.15s;
+      }
+      @keyframes moveIt {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
     <title>Animo | Stok Bahan</title>
   </head>
 
   <body>
+    <div
+      id="blank"
+      style="
+        position: fixed;
+        z-index: 100000;
+        width: 100vw;
+        height: 100%;
+        background-color: white;
+        place-items: center;
+        display: grid;
+      "
+    >
+      <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <div class="container-xxl position-relative p-0 d-flex">
       <div class="sidebar-container">
         <sidebar class="sidebar" id="sidebar"></sidebar>
@@ -314,6 +370,9 @@
     </div>
 
     <script>
+      window.onload = () => {
+        document.getElementById("blank").style.display = "none";
+      };
       const editStockDialog = document.getElementById("edit-stock");
       const formEditStock = document.getElementById("form-edit-stock");
       const editStockFeedback = document.getElementById("edit-stock-feedback");

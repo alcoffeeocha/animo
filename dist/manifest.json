@@ -8,7 +8,7 @@
   "bahan.js": "autobahan.935eecdf.js",
   "stokBahan.js": "autostokBahan.9616e89f.js",
   "pesanan.js": "autopesanan.de5a5c05.js",
-  "resep.js": "autoresep.a6f43b63.js",
+  "resep.js": "autoresep.3904050d.js",
   "rekap.js": "autorekap.cb29c6ab.js",
   "upgrade.js": "autoupgrade.b8b39f30.js",
   "checkout.js": "autocheckout.31d6cfe0.js",
@@ -17,8 +17,8 @@
   "pesanan.html": "autopesanan.html",
   "produk.html": "autoproduk.html",
   "bahan.html": "autobahan.html",
-  "resep.html": "autoresep.html",
   "images/pembayaran.png": "autoimages/pembayaran.png",
+  "resep.html": "autoresep.html",
   "stok_bahan.html": "autostok_bahan.html",
   "images/animo-192.png": "autoimages/animo-192.png",
   "images/animo-180.png": "autoimages/animo-180.png",
@@ -65,7 +65,7 @@
   "bahan.935eecdf.js.map": "autobahan.935eecdf.js.map",
   "stokBahan.9616e89f.js.map": "autostokBahan.9616e89f.js.map",
   "pesanan.de5a5c05.js.map": "autopesanan.de5a5c05.js.map",
-  "resep.a6f43b63.js.map": "autoresep.a6f43b63.js.map",
+  "resep.3904050d.js.map": "autoresep.3904050d.js.map",
   "rekap.cb29c6ab.js.map": "autorekap.cb29c6ab.js.map",
   "upgrade.b8b39f30.js.map": "autoupgrade.b8b39f30.js.map"
 }

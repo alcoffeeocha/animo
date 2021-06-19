@@ -6,7 +6,7 @@ document.getElementById("header-title").textContent = "Resep";
 
 let currentURL = new URL(document.location || window.location.href);
 
-const linkEls = document.querySelectorAll("[data-sesarch]");
+const linkEls = document.querySelectorAll("[data-search]");
 const addRecipeBtn = document.getElementById("add-recipe-btn");
 const detailRecipe = document.getElementById("detail-recipe");
 const dropdownProduk = document.getElementById("dropdown-produk");

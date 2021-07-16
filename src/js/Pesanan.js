@@ -17,7 +17,7 @@ if (dateText.length > 0) {
 }
 
 addOrderCta.addEventListener("click", () => {
-  let products = document.querySelectorAll("[name='product']");
+  let products = document.querySelectorAll("[name=product]");
 
   if (products.length > 0) {
     products[0].checked = true;

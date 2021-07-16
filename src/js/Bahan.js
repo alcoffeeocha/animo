@@ -40,15 +40,17 @@ const prodCatSave = document.getElementById("material-cat-save");
 
 let maySaveCat = false;
 
-materialCat.addEventListener("keyup", function () {
-  if (this.value.trim()) {
-    prodCatSave.removeAttribute("disabled");
-    maySaveCat = true;
-  } else {
-    prodCatSave.setAttribute("disabled", "disabled");
-    maySaveCat = false;
-  }
-});
+if (materialCat) {
+  materialCat.addEventListener("keyup", function () {
+    if (this.value.trim()) {
+      prodCatSave.removeAttribute("disabled");
+      maySaveCat = true;
+    } else {
+      prodCatSave.setAttribute("disabled", "disabled");
+      maySaveCat = false;
+    }
+  });
+}
 
 prodCatSave.addEventListener("keyup", (e) => {
   if (e.key === "Enter" || e.keyCode === 13) {
@@ -56,27 +58,29 @@ prodCatSave.addEventListener("keyup", (e) => {
   }
 });
 
-formAddMaterial.addEventListener("submit", (e) => {
-  let msg = [];
-  let material = document.getElementById("material").value.trim();
-  let subMaterial = document.getElementById("sub-material").value.trim();
-  let brand = document.getElementById("brand").value.trim();
-  let supplier = document.getElementById("supplier").value.trim();
-  let contact = document.getElementById("contact").value.trim();
-  if (!material || material === "") msg.push("Nama Bahan");
-  if (!subMaterial || subMaterial === "") msg.push("Sub Bahan");
-  if (!brand || brand === "") msg.push("Merk sub bahan");
-  if (!supplier || supplier === "") msg.push("Nama supplier");
-  if (!contact || contact === "") msg.push("Kontak Supplier");
+if (formAddMaterial) {
+  formAddMaterial.addEventListener("submit", (e) => {
+    let msg = [];
+    let material = document.getElementById("material").value.trim();
+    let subMaterial = document.getElementById("sub-material").value.trim();
+    let brand = document.getElementById("brand").value.trim();
+    let supplier = document.getElementById("supplier").value.trim();
+    let contact = document.getElementById("contact").value.trim();
+    if (!material || material === "") msg.push("Nama Bahan");
+    if (!subMaterial || subMaterial === "") msg.push("Sub Bahan");
+    if (!brand || brand === "") msg.push("Merk sub bahan");
+    if (!supplier || supplier === "") msg.push("Nama supplier");
+    if (!contact || contact === "") msg.push("Kontak Supplier");
 
-  if (msg.length > 0) {
-    e.preventDefault();
-    Swal.fire({
-      icon: "warning",
-      title: "Data di bawah harus diisi",
-      text: msg.join(", "),
-    });
-  } else {
-    formAddMaterial.submit();
-  }
-});
+    if (msg.length > 0) {
+      e.preventDefault();
+      Swal.fire({
+        icon: "warning",
+        title: "Data di bawah harus diisi",
+        text: msg.join(", "),
+      });
+    } else {
+      formAddMaterial.submit();
+    }
+  });
+}

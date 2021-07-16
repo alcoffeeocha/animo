@@ -80,7 +80,7 @@
               <ul id="filter-group" class="filter__group">
                 <li class="filter__value">
                   <a href="?kategori=makanan">
-                    <h4>Makanan Terbaik di Dunia</h4>
+                    <h4>Makanan</h4>
                   </a>
                   <!-- <svg class="position-absolute" style="top: 50%; transform: translateY(-50%);" onclick="(()=>{
                     window.location.replace('produk/delKat?kategori=makanan')
@@ -119,19 +119,18 @@
               <li class="products__item products__item--selected">
                 <a href="?kategori=makanan&produk=PRODwf157">
                   <h4>
-                    Cookies Keju Cokelat Susu Kacang Telor Ayam Bebek Martabak
-                    Manis
+                    Cookies Keju
                   </h4>
                 </a>
               </li>
               <li class="products__item product__item--selected">
                 <a href="?kategori=makanan&produk=PRODpqglq">
-                  <h4>Semprit Paling Enak buatan Ibu</h4>
+                  <h4>Semprit</h4>
                 </a>
               </li>
               <li class="products__item product__item--selected">
                 <a href="?kategori=makanan&produk=PRODfs37r">
-                  <h4>Nasgor Padang</h4>
+                  <h4>Nastar</h4>
                 </a>
               </li>
             </ul>
@@ -145,7 +144,7 @@
               <!-- ubah dengan data produk yang sedang dipilih user -->
               <div
                 style="
-                  background-image: url(https://2.bp.blogspot.com/-ONWkgAXHXE8/UQvKC0INcqI/AAAAAAAAAPU/CEZDoV6YA3c/s1600/far-cry3x-large.jpg);
+                  background-image: url(https://www.solusisehatku.com/wp-content/uploads/2015/08/Cookies-Madu-Keju1.png);
                   background-position: center;
                   background-size: cover;
                 "
@@ -161,9 +160,9 @@
                     <img src="./img/icons/pen.svg" alt="Edit Icon" />
                   </button>
                 </div>
-                <p class="text-center mt-1 mt-lg-4">100 gr</p>
+                <p class="text-center mt-1 mt-lg-4">1 pc</p>
                 <!-- just inject the number, js will convert that number to rupiah format -->
-                <p class="text-center" data-convert-to="rupiah">100000</p>
+                <p class="text-center" data-convert-to="rupiah">5000</p>
               </div>
               <div class="product-material">
                 <div class="d-flex align-items-center justify-content-center">
@@ -186,14 +185,24 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Gula Manis</td>
-                      <td data-convert-to="decimal">1000</td>
-                      <td>gr</td>
+                      <td>Tepung Terigu</td>
+                      <td data-convert-to="decimal">250</td>
+                      <td>gram</td>
                     </tr>
                     <tr>
-                      <td>Tepung</td>
-                      <td data-convert-to="decimal">1250</td>
-                      <td>gr</td>
+                      <td>Keju Parut</td>
+                      <td data-convert-to="decimal">150</td>
+                      <td>gram</td>
+                    </tr>
+                    <tr>
+                      <td>Margarin</td>
+                      <td data-convert-to="decimal">80</td>
+                      <td>gram</td>
+                    </tr>
+                    <tr>
+                      <td>Gula</td>
+                      <td data-convert-to="decimal">2</td>
+                      <td>sdm</td>
                     </tr>
                   </tbody>
                 </table>
@@ -386,7 +395,7 @@
                 <!-- ubah url pada background di bawah menyesuaikan url gambar produknya, ini hanya sekedar preview -->
                 <label
                   style="
-                    background-image: url('https://2.bp.blogspot.com/-ONWkgAXHXE8/UQvKC0INcqI/AAAAAAAAAPU/CEZDoV6YA3c/s1600/far-cry3x-large.jpg');
+                    background-image: url('https://www.solusisehatku.com/wp-content/uploads/2015/08/Cookies-Madu-Keju1.png');
                     background-size: cover;
                     background-position: center;
                   "
@@ -465,7 +474,7 @@
                     style="width: 10rem;"
                     type="text"
                     name="unit"
-                    value="kg"
+                    value="pc"
                     placeholder="Satuan"
                   />
 
@@ -478,9 +487,8 @@
                 <input
                   id="prod-price-edit"
                   type="number"
-                  step="10000"
                   name="price"
-                  value="10000"
+                  value="5000"
                   min="0"
                   placeholder="harga"
                 />

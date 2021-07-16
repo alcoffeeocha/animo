@@ -83,11 +83,8 @@
         <header class="header" id="header"></header>
         <section class="rekap">
           <div class="rekapContainer">
-            <div class="rekap__pilihanContainer">
-              <div
-                style="margin-right: 43px"
-                class="rekap__pilihanContainerTop"
-              >
+            <div class="rekap__pilihanContainer" >
+              <div style="margin-right: 43px;" class="rekap__pilihanContainerTop">
                 <div class="rekap__topContainerText">Mau Rekap Apa?</div>
                 <select name="cars" class="rekap_pilihan" id="cars">
                   <option value="Bahan Baku">Bahan Baku</option>
@@ -96,7 +93,7 @@
               </div>
             </div>
           </div>
-
+          
           <div class="perhitungan">
             <h2 class="rekapPerhitungan">Pilih Perhitungan yang diinginkan</h2>
             <p class="detailPerhitungan">
@@ -107,54 +104,80 @@
           <div class="checkBoxContainer">
             <div class="rekapCheckBox">
               <form action="" method="POST">
-                <input type="checkbox" name="option1" id="penjualan" />
-                <label for="penjualan">Penjualan</label>
-                <br />
-                <input type="checkbox" name="option2" id="pemasukan" />
-                <label for="pemasukan">Pemasukan</label>
-                <br />
-                <input type="checkbox" name="option3" id="pengeluaran" />
-                <label for="pengeluaran">Pengeluaran</label>
-                <br />
-                <input type="checkbox" name="option4" id="profit-margin" />
-                <label for="profit-margin">Profit Margin</label>
-                <br />
-                <hr />
-                <input
-                  type="checkbox"
-                  id="option-all"
-                  onchange="checkAll(this)"
-                />
-                <label for="option-all">Centang Semua</label>
-                <br />
+                <div class="selectOne">
+                  <input type="checkbox" id="penjualan">
+                  <label for="penjualan" class="label">Penjualan</label>
+                  <br>
+                  <input type="checkbox" id="pemasukan">
+                  <label for="pemasukan" class="label"> Pemasukan</label>
+                  <br>
+                  <input type="checkbox" id="pengeluaran">
+                  <label for="pengeluaran" class="label">Pengeluaran</label>
+                  <br>
+                  <input type="checkbox" id="profit-margin">
+                  <label for="profit-margin" class="label">Profit Margin</label>
+                  <br>
+                </div>
+                <div class="selectAll">
+                  <input type="checkbox" id="option-all" onchange="checkAll(this)">
+                  <label for="option-all" class="labelAll">Centang Semua</label>
+                  <br>
+                </div>
               </form>
             </div>
 
             <div class="downloadRekap">
               <p>Klik Tombol dibawah ini untuk mengunduh file PDF</p>
-              <button type="button" class="btnDownload">Download</button>
+              <button id="download-btn" type="button" class="btnDownload">Download</button>
             </div>
-          </div>
-        </section>
-      </main>
-    </div>
-    <script>
-      window.onload = () => {
-        document.getElementById("blank").style.display = "none";
-      };
-      var checkboxes = document.querySelectorAll("input[type = 'checkbox']");
 
-      function checkAll(myCheckbox) {
-        if (myCheckbox.checked == true) {
-          checkboxes.forEach(function (checkbox) {
+          </div>
+          
+          
+        </main>
+      </div>
+    </section>
+  </div>
+
+  <!-- JS -->
+  <script
+      async
+      src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"
+    ></script>
+  <script type="module" src="./js/Rekap.js"></script>
+  <script>
+    const downloadBtn = document.getElementById('download-btn');
+
+    window.onload = () => {
+      document.getElementById("blank").style.display = "none";
+    };
+    var checkboxes = document.querySelectorAll("input[type = 'checkbox']");
+    
+    function checkAll(myCheckbox){
+    if(myCheckbox.checked == true){
+        checkboxes.forEach(function(checkbox){
             checkbox.checked = true;
-          });
-        } else {
-          checkboxes.forEach(function (checkbox) {
+        });
+    }
+    else{
+        checkboxes.forEach(function(checkbox){
             checkbox.checked = false;
-          });
-        }
-      }
-    </script>
+        });
+    }
+  }
+
+  downloadBtn.addEventListener('click',downloadPDF);
+
+  function downloadPDF(){
+    Swal.fire({
+      title: 'Maaf, sedang diperbaiki',
+      confirmButtonColor: '#802302',
+      confirmButtonText: 'Oke'
+    })
+    document.querySelector('.swal2-title').style.marginTop = '1rem';
+  }
+
+  
+  </script>
   </body>
 </html>

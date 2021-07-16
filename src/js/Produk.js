@@ -55,48 +55,52 @@ cancelBtns.forEach((btn) => {
   });
 });
 
-prodImg.addEventListener("change", function (e) {
-  const file = this.files[0];
+if (prodImg) {
+  prodImg.addEventListener("change", function (e) {
+    const file = this.files[0];
 
-  if (file) {
-    const reader = new FileReader();
-    reader.addEventListener("load", function () {
-      uploadArea.style.backgroundImage = `url(${this.result})`;
-      uploadArea.style.backgroundPosition = "center";
-      uploadArea.style.backgroundSize = "cover";
-      uploadArea.textContent = "";
-      uploadArea.nextElementSibling.textContent = file.name;
-    });
-    reader.readAsDataURL(file);
-  } else {
-    uploadArea.removeAttribute("style");
-  }
-});
+    if (file) {
+      const reader = new FileReader();
+      reader.addEventListener("load", function () {
+        uploadArea.style.backgroundImage = `url(${this.result})`;
+        uploadArea.style.backgroundPosition = "center";
+        uploadArea.style.backgroundSize = "cover";
+        uploadArea.textContent = "";
+        uploadArea.nextElementSibling.textContent = file.name;
+      });
+      reader.readAsDataURL(file);
+    } else {
+      uploadArea.removeAttribute("style");
+    }
+  });
+}
 
-formAddProduct.addEventListener("submit", (e) => {
-  let msg = [];
-  let img = prodImg.files;
-  let name = prodName.value.trim();
-  let size = prodSize.value;
-  let unit = prodUnit.value.trim();
-  let price = prodPrice.value;
+if (formAddProduct) {
+  formAddProduct.addEventListener("submit", (e) => {
+    let msg = [];
+    let img = prodImg.files;
+    let name = prodName.value.trim();
+    let size = prodSize.value;
+    let unit = prodUnit.value.trim();
+    let price = prodPrice.value;
 
-  if (img.length < 1) msg.push("Gambar produk diperlukan");
-  if (!name) msg.push("Nama produk diperlukan");
-  if (!size || size === 0) msg.push("Ukuran produk diperlukan");
-  if (!unit) msg.push("Satuan produk diperlukan");
-  if (!price || price === 0) msg.push("Harga produk diperlukan");
+    if (img.length < 1) msg.push("Gambar produk diperlukan");
+    if (!name) msg.push("Nama produk diperlukan");
+    if (!size || size === 0) msg.push("Ukuran produk diperlukan");
+    if (!unit) msg.push("Satuan produk diperlukan");
+    if (!price || price === 0) msg.push("Harga produk diperlukan");
 
-  if (msg.length > 0) {
-    e.preventDefault();
-    addProductFeedback.classList.add("dialog__feedback--appear");
-    let html = ``;
-    msg.forEach((m) => {
-      html += `<li>${m}</li>`;
-    });
-    addProductFeedback.querySelector("ul").innerHTML = html;
-  }
-});
+    if (msg.length > 0) {
+      e.preventDefault();
+      addProductFeedback.classList.add("dialog__feedback--appear");
+      let html = ``;
+      msg.forEach((m) => {
+        html += `<li>${m}</li>`;
+      });
+      addProductFeedback.querySelector("ul").innerHTML = html;
+    }
+  });
+}
 
 let maySaveCat = false;
 
@@ -116,46 +120,50 @@ prodCatSave.addEventListener("keyup", (e) => {
   }
 });
 
-formEditProduct.addEventListener("submit", (e) => {
-  let msg = [];
-  let name = prodNameEdit.value.trim();
-  let size = prodSizeEdit.value;
-  let unit = prodUnitEdit.value.trim();
-  let price = prodPriceEdit.value;
+if (formEditProduct) {
+  formEditProduct.addEventListener("submit", (e) => {
+    let msg = [];
+    let name = prodNameEdit.value.trim();
+    let size = prodSizeEdit.value;
+    let unit = prodUnitEdit.value.trim();
+    let price = prodPriceEdit.value;
 
-  if (!name) msg.push("Nama produk diperlukan");
-  if (!size || size === 0) msg.push("Ukuran produk diperlukan");
-  if (!unit) msg.push("Satuan produk diperlukan");
-  if (!price || price === 0) msg.push("Harga produk diperlukan");
-  console.log(msg);
+    if (!name) msg.push("Nama produk diperlukan");
+    if (!size || size === 0) msg.push("Ukuran produk diperlukan");
+    if (!unit) msg.push("Satuan produk diperlukan");
+    if (!price || price === 0) msg.push("Harga produk diperlukan");
+    console.log(msg);
 
-  if (msg.length > 0) {
-    e.preventDefault();
-    editProductFeedback.classList.add("dialog__feedback--appear");
-    let html = ``;
-    msg.forEach((m) => {
-      html += `<li>${m}</li>`;
-    });
-    editProductFeedback.querySelector("ul").innerHTML = html;
-  }
-});
+    if (msg.length > 0) {
+      e.preventDefault();
+      editProductFeedback.classList.add("dialog__feedback--appear");
+      let html = ``;
+      msg.forEach((m) => {
+        html += `<li>${m}</li>`;
+      });
+      editProductFeedback.querySelector("ul").innerHTML = html;
+    }
+  });
+}
 
-prodImageEdit.addEventListener("change", function (e) {
-  const file = this.files[0];
+if (prodImageEdit) {
+  prodImageEdit.addEventListener("change", function (e) {
+    const file = this.files[0];
 
-  if (file) {
-    const reader = new FileReader();
-    reader.addEventListener("load", function () {
-      uploadAreaEdit.style.backgroundImage = `url(${this.result})`;
-      uploadAreaEdit.style.backgroundPosition = "center";
-      uploadAreaEdit.style.backgroundSize = "cover";
-      uploadAreaEdit.nextElementSibling.textContent = file.name;
-    });
-    reader.readAsDataURL(file);
-  } else {
-    uploadAreaEdit.removeAttribute("style");
-  }
-});
+    if (file) {
+      const reader = new FileReader();
+      reader.addEventListener("load", function () {
+        uploadAreaEdit.style.backgroundImage = `url(${this.result})`;
+        uploadAreaEdit.style.backgroundPosition = "center";
+        uploadAreaEdit.style.backgroundSize = "cover";
+        uploadAreaEdit.nextElementSibling.textContent = file.name;
+      });
+      reader.readAsDataURL(file);
+    } else {
+      uploadAreaEdit.removeAttribute("style");
+    }
+  });
+}
 
 document.querySelectorAll("[data-id='backToForm']").forEach((back) => {
   back.addEventListener("click", function () {
@@ -164,53 +172,57 @@ document.querySelectorAll("[data-id='backToForm']").forEach((back) => {
 });
 
 // HANDLE ADD PRODUCT CAT DROPDOWN
-let addCatProducts = addCatOptions.querySelectorAll("input");
-if (addCatProducts.length > 0) {
-  addCatProducts.forEach((el) => {
-    if (el.checked) {
-      addCatSelected.textContent = el.nextElementSibling.textContent;
-      return;
+if (addCatOptions) {
+  let addCatProducts = addCatOptions.querySelectorAll("input");
+  if (addCatProducts.length > 0) {
+    addCatProducts.forEach((el) => {
+      if (el.checked) {
+        addCatSelected.textContent = el.nextElementSibling.textContent;
+        return;
+      }
+    });
+    if (![...addCatProducts].some((el) => el.checked)) {
+      addCatProducts[0].checked;
+      addCatSelected.textContent =
+        addCatProducts[0].nextElementSibling.textContent;
     }
-  });
-  if (![...addCatProducts].some((el) => el.checked)) {
-    addCatProducts[0].checked;
-    addCatSelected.textContent =
-      addCatProducts[0].nextElementSibling.textContent;
-  }
-  addCatSelected.onclick = () => {
-    addCatOptions.classList.toggle("active");
-  };
-  addCatProdList.forEach((o) => {
-    o.onclick = function () {
-      addCatSelected.textContent = this.querySelector("label").textContent;
-      addCatOptions.classList.remove("active");
-      this.querySelector("input").checked = true;
+    addCatSelected.onclick = () => {
+      addCatOptions.classList.toggle("active");
     };
-  });
+    addCatProdList.forEach((o) => {
+      o.onclick = function () {
+        addCatSelected.textContent = this.querySelector("label").textContent;
+        addCatOptions.classList.remove("active");
+        this.querySelector("input").checked = true;
+      };
+    });
+  }
 }
 
 // HANDLE EDIT PRODUCT CAT DROPDOWN
-let editCatProducts = editCatOptions.querySelectorAll("input");
-if (editCatProducts.length > 0) {
-  editCatProducts.forEach((el) => {
-    if (el.checked) {
-      editCatSelected.textContent = el.nextElementSibling.textContent;
-      return;
+if (editCatOptions) {
+  let editCatProducts = editCatOptions.querySelectorAll("input");
+  if (editCatProducts.length > 0) {
+    editCatProducts.forEach((el) => {
+      if (el.checked) {
+        editCatSelected.textContent = el.nextElementSibling.textContent;
+        return;
+      }
+    });
+    if (![...editCatProducts].some((el) => el.checked)) {
+      editCatProducts[0].checked;
+      editCatSelected.textContent =
+        editCatProducts[0].nextElementSibling.textContent;
     }
-  });
-  if (![...editCatProducts].some((el) => el.checked)) {
-    editCatProducts[0].checked;
-    editCatSelected.textContent =
-      editCatProducts[0].nextElementSibling.textContent;
-  }
-  editCatSelected.onclick = () => {
-    editCatOptions.classList.toggle("active");
-  };
-  editCatProdList.forEach((o) => {
-    o.onclick = function () {
-      editCatSelected.textContent = this.querySelector("label").textContent;
-      editCatOptions.classList.remove("active");
-      this.querySelector("input").checked = true;
+    editCatSelected.onclick = () => {
+      editCatOptions.classList.toggle("active");
     };
-  });
+    editCatProdList.forEach((o) => {
+      o.onclick = function () {
+        editCatSelected.textContent = this.querySelector("label").textContent;
+        editCatOptions.classList.remove("active");
+        this.querySelector("input").checked = true;
+      };
+    });
+  }
 }

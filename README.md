@@ -1,2 +1,3 @@
 # animo
-client script for Animo! The inventory management website
+
+Client side script for Animo! The inventory management website

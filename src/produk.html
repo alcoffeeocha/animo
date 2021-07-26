@@ -1,503 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-      crossorigin="anonymous"
-    />
-    <style>
-      .spinner {
-        display: inline-block;
-        position: relative;
-        width: 80px;
-        height: 80px;
-      }
-      .spinner div {
-        box-sizing: border-box;
-        display: block;
-        position: absolute;
-        width: 64px;
-        height: 64px;
-        margin: 8px;
-        border: 8px solid #d97d0d;
-        border-radius: 50%;
-        animation: moveIt 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: #d97d0d transparent transparent transparent;
-      }
-      .spinner div:nth-child(1) {
-        animation-delay: -0.45s;
-      }
-      .spinner div:nth-child(2) {
-        animation-delay: -0.3s;
-      }
-      .spinner div:nth-child(3) {
-        animation-delay: -0.15s;
-      }
-      @keyframes moveIt {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-}
-    </style>
-    <title>Animo | Produk</title>
-  </head>
 
-  <body>
-    <div id="blank" style="position: fixed;z-index: 100000;width: 100vw;height: 100%;background-color: white;place-items: center;display: grid;">
-      <div class="spinner"><div></div><div></div><div></div><div></div></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <style>
+    .spinner {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+
+    .spinner div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border: 8px solid #d97d0d;
+      border-radius: 50%;
+      animation: moveIt 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #d97d0d transparent transparent transparent;
+    }
+
+    .spinner div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    .spinner div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    .spinner div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+
+    @keyframes moveIt {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <title>Animo | Produk</title>
+</head>
+
+<body>
+  <div id="blank"
+    style="position: fixed;z-index: 100000;width: 100vw;height: 100%;background-color: white;place-items: center;display: grid;">
+    <div class="spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
-    <div class="container-xxl position-relative p-0 d-flex">
-      <div class="sidebar-container">
-        <sidebar class="sidebar" id="sidebar"></sidebar>
-      </div>
-      <main class="main">
-        <header class="header" id="header"></header>
-        <div class="row mb-5">
-          <div class="col-12 col-sm-8 col-md-6 col-lg-6 order-2 order-lg-1 mx-auto ml-lg-0">
-            <div class="filter">
+  </div>
+  <div class="container-xxl position-relative p-0 d-flex">
+    <div class="sidebar-container">
+      <sidebar class="sidebar" id="sidebar"></sidebar>
+    </div>
+    <main class="main">
+      <header class="header" id="header"></header>
+      <div class="row mb-5">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-6 order-2 order-lg-1 mx-auto ml-lg-0">
+          <div class="filter">
+            <div class="d-flex align-items-center mb-3">
               <p class="filter__label">Kategori Produk</p>
-              <button
-                class="filter__toggler"
-                id="filter-toggler"
-                aria-expanded="false"
-              >
-                <h4>Makanan</h4>
-                <span>&gt;</span>
-              </button>
-              <ul id="filter-group" class="filter__group">
-                <li class="filter__value">
-                  <a href="?kategori=makanan">
-                    <h4>Makanan Terbaik di Dunia</h4>
-                  </a>
-                  <!-- <svg class="position-absolute" style="top: 50%; transform: translateY(-50%);" onclick="(()=>{
+            </div>
+            <button class="filter__toggler" id="filter-toggler" aria-expanded="false">
+              <h4>Makanan</h4>
+              <span>&gt;</span>
+            </button>
+            <ul id="filter-group" class="filter__group">
+              <li class="filter__value d-flex">
+                <a href="#!">
+                  <h4 id="makanan-12">Makanan Terbaik di Dunia</h4>
+                </a>
+                <button type="submit" class="edit1 button-primary button--rounded-1 mx-2">
+                  <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                </button>
+                <button type="submit" class="save1 button-primary button--rounded-1">
+                  <img src="./img/icons/save.svg" alt="Save Icon" />
+                </button>
+                <!-- <svg class="position-absolute" style="top: 50%; transform: translateY(-50%);" onclick="(()=>{
                     window.location.replace('produk/delKat?kategori=makanan')
                     })()" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#1f1f1f" viewBox="0 0 16 16">
                     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                   </svg> -->
-                </li>
-                <li class="filter__value">
-                  <a href="?kategori=minuman">
-                    <h4>Minuman</h4>
-                  </a>
-                  <!-- <svg class="position-absolute" style="top: 50%; transform: translateY(-50%);" onclick="(()=>{
+              </li>
+              <li class="filter__value d-flex">
+                <a href="#!">
+                  <h4 id="minuman-12">Minuman</h4>
+                </a>
+                <button type="submit" class="edit2 button-primary button--rounded-1 mx-2">
+                  <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                </button>
+                <button type="submit" class="save2 button-primary button--rounded-1">
+                  <img src="./img/icons/save.svg" alt="Save Icon" />
+                </button>
+                <!-- <svg class="position-absolute" style="top: 50%; transform: translateY(-50%);" onclick="(()=>{
                     window.location.replace('produk/delKat?kategori=minuman')
                     })()" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#1f1f1f" viewBox="0 0 16 16">
                     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                   </svg> -->
-                </li>
-                <li class="filter__value">
-                  <a href="?kategori=sidedish">
-                    <h4>Side Dish</h4>
-                  </a>
-                  <!-- <svg class="position-absolute" style="top: 50%; transform: translateY(-50%);" onclick="(()=>{
+              </li>
+              <li class="filter__value d-flex">
+                <a href="#!">
+                  <h4 id="sideDish-12">Side Dish</h4>
+                </a>
+                <button type="submit" class="edit3 button-primary button--rounded-1 mx-2">
+                  <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                </button>
+                <button type="submit" class="save3 button-primary button--rounded-1">
+                  <img src="./img/icons/save.svg" alt="Save Icon" />
+                </button>
+                <!-- <svg class="position-absolute" style="top: 50%; transform: translateY(-50%);" onclick="(()=>{
                     window.location.replace('produk/delKat?kategori=sidedish')
                     })()" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#1f1f1f" viewBox="0 0 16 16">
                     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                   </svg> -->
-                </li>
-                <li data-modal="add-prod-cat" class="filter__add">
-                  + Tambah Kategori
-                </li>
-              </ul>
-            </div>
-            <h2 class="list__title" style="margin-top: 3.8rem;">Pilih Produk</h2>
-            <ul class="products">
-              <!-- pindahkan class "products__item--selected" ke item atau produk yang sedang dipilih oleh user, agar nanti item terpilih ada backgroundnya di UI -->
-              <li class="products__item products__item--selected">
-                <a href="?kategori=makanan&produk=PRODwf157">
-                  <h4>
-                    Cookies Keju Cokelat Susu Kacang Telor Ayam Bebek Martabak
-                    Manis
-                  </h4>
-                </a>
               </li>
-              <li class="products__item product__item--selected">
-                <a href="?kategori=makanan&produk=PRODpqglq">
-                  <h4>Semprit Paling Enak buatan Ibu</h4>
-                </a>
-              </li>
-              <li class="products__item product__item--selected">
-                <a href="?kategori=makanan&produk=PRODfs37r">
-                  <h4>Nasgor Padang</h4>
-                </a>
+              <li data-modal="add-prod-cat" class="filter__add">
+                + Tambah Kategori
               </li>
             </ul>
-            <div data-modal="add-product" class="add-item">
-              <button class="button-primary button--rounded-1">&plus;</button>
-              <p>Tambah Produk</p>
-            </div>
           </div>
-          <div class="col-12 col-lg-6 order-1 order-lg-2 mb-5">
-            <div class="product-detail">
-              <!-- ubah dengan data produk yang sedang dipilih user -->
-              <div
-                style="
+          <h2 class="list__title" style="margin-top: 3.8rem;">Pilih Produk</h2>
+          <ul class="products">
+            <!-- pindahkan class "products__item--selected" ke item atau produk yang sedang dipilih oleh user, agar nanti item terpilih ada backgroundnya di UI -->
+            <li class="products__item products__item--selected">
+              <a href="?kategori=makanan&produk=PRODwf157">
+                <h4>
+                  Cookies Keju Cokelat Susu Kacang Telor Ayam Bebek Martabak
+                  Manis
+                </h4>
+              </a>
+            </li>
+            <li class="products__item product__item--selected">
+              <a href="?kategori=makanan&produk=PRODpqglq">
+                <h4>Semprit Paling Enak buatan Ibu</h4>
+              </a>
+            </li>
+            <li class="products__item product__item--selected">
+              <a href="?kategori=makanan&produk=PRODfs37r">
+                <h4>Nasgor Padang</h4>
+              </a>
+            </li>
+          </ul>
+          <div data-modal="add-product" class="add-item">
+            <button class="button-primary button--rounded-1">&plus;</button>
+            <p>Tambah Produk</p>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 order-1 order-lg-2 mb-5">
+          <div class="product-detail">
+            <!-- ubah dengan data produk yang sedang dipilih user -->
+            <div style="
                   background-image: url(https://2.bp.blogspot.com/-ONWkgAXHXE8/UQvKC0INcqI/AAAAAAAAAPU/CEZDoV6YA3c/s1600/far-cry3x-large.jpg);
                   background-position: center;
                   background-size: cover;
-                "
-                class="product-detail__image"
-              />
-              </div>
-              <div class="product-detail__desc">
-                <div class="d-flex align-items-center">
-                  <h2 class="product-detail__name">
-                    Cookies Keju
-                  </h2>
-                  <button data-modal="edit-product" class="button-primary">
-                    <img src="./img/icons/pen.svg" alt="Edit Icon" />
-                  </button>
-                </div>
-                <p class="text-center mt-1 mt-lg-4">100 gr</p>
-                <!-- just inject the number, js will convert that number to rupiah format -->
-                <p class="text-center" data-convert-to="rupiah">100000</p>
-              </div>
-              <div class="product-material">
-                <div class="d-flex align-items-center justify-content-center">
-                  <h2 class="product-material__title">
-                    Bahan Produk
-                  </h2>
-                  <!-- query di bawah bertujuan untuk memfilter langsug berdasarkan produk setelah user diredirect ke laman Resep -->
-                  <a href="./resep.html?produk=PRODwf157" class="button-primary"
-                    >&plus;</a
-                  >
-                </div>
-                <!-- Ubah dengan data bahan yang diperlukan dalam  membuat produk ini -->
-                <table class="product-material__table" >
-                  <thead>
-                    <tr>
-                      <th>Nama Bahan  </th>
-                      <th>Jumlah</th>
-                      <th>Satuan</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Gula Manis</td>
-                      <td data-convert-to="decimal">1000</td>
-                      <td>gr</td>
-                    </tr>
-                    <tr>
-                      <td>Tepung</td>
-                      <td data-convert-to="decimal">1250</td>
-                      <td>gr</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                " class="product-detail__image" />
+          </div>
+          <div class="product-detail__desc">
+            <div class="d-flex align-items-center">
+              <h2 class="product-detail__name">
+                Cookies Keju
+              </h2>
+              <button data-modal="edit-product" class="button-primary">
+                <img src="./img/icons/pen.svg" alt="Edit Icon" />
+              </button>
             </div>
+            <p class="text-center mt-1 mt-lg-4">100 gr</p>
+            <!-- just inject the number, js will convert that number to rupiah format -->
+            <p class="text-center" data-convert-to="rupiah">100000</p>
+          </div>
+          <div class="product-material">
+            <div class="d-flex align-items-center justify-content-center">
+              <h2 class="product-material__title">
+                Bahan Produk
+              </h2>
+              <!-- query di bawah bertujuan untuk memfilter langsug berdasarkan produk setelah user diredirect ke laman Resep -->
+              <a href="./resep.html?produk=PRODwf157" class="button-primary">&plus;</a>
+            </div>
+            <!-- Ubah dengan data bahan yang diperlukan dalam  membuat produk ini -->
+            <table class="product-material__table">
+              <thead>
+                <tr>
+                  <th>Nama Bahan </th>
+                  <th>Jumlah</th>
+                  <th>Satuan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gula Manis</td>
+                  <td data-convert-to="decimal">1000</td>
+                  <td>gr</td>
+                </tr>
+                <tr>
+                  <td>Tepung</td>
+                  <td data-convert-to="decimal">1250</td>
+                  <td>gr</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-      </main>
+      </div>
+  </div>
+  </main>
 
-      <!-- POPUP TAMBAH PRODUCT -->
-      <dialog class="dialog dialog__add-product" id="add-product" open>
-        <div class="dialog__backdrop">
-          <div class="dialog__box">
-            <!-- feedback messages will be shown here (UI feedback secara default tidak tampil, js lah yang akan menampilkan bila ada validasi yang gagal) -->
-            <div id="add-product-feedback" class="dialog__feedback">
-              <ul class="dialog__feedback-msg"></ul>
-              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" data-id="backToForm" viewBox="0 0 16 16">
-                <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
-              </svg>
-            </div>
-            <form
-              action=""
-              method="POST"
-              id="form-add-product"
-              enctype="multipart/form-data"
-            >
-              <div class="upload-image">
-                <input
-                  type="file"
-                  id="prod-image"
-                  name="image"
-                  accept="image/*"
-                />
-                <label
-                  id="upload-area"
-                  class="upload-image__area"
-                  for="prod-image"
-                  >&plus;</label
-                >
-                <p class="text-center mt-3">Tambah Foto Produk</p>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="product-category"
-                  >Kategori Produk</label
-                >
-                <div class="dropdown__box dropdown__resep">
-                  <div class="dropdown__options" data-down-add="category-options">
-                    <!-- ubah semua value, id, for+isi label nya -->
-                    <div class="dropdown__option">
-                      <input
-                        type="radio"
-                        id="cat1"
-                        name="category"
-                        value="makanan246"
-                        checked="true"
-                      />
-                      <label for="cat1">Makanan</label>
-                    </div>
-                    <div class="dropdown__option">
-                      <input
-                        type="radio"
-                        id="cat2"
-                        name="category"
-                        value="minuman222"
-                      />
-                      <label for="cat2">Minuman</label>
-                    </div>
-                    <div class="dropdown__option">
-                      <input
-                        type="radio"
-                        id="cat3"
-                        name="category"
-                        value="side555"
-                      />
-                      <label for="cat3">Side Dish</label>
-                    </div>
-                  </div>
-                  <!-- js will dynamically change the text inside -->
-                  <div class="dropdown__selected" data-down-add="category-selected"></div>
+  <!-- POPUP TAMBAH PRODUCT -->
+  <dialog class="dialog dialog__add-product" id="add-product" open>
+    <div class="dialog__backdrop">
+      <div class="dialog__box">
+        <!-- feedback messages will be shown here (UI feedback secara default tidak tampil, js lah yang akan menampilkan bila ada validasi yang gagal) -->
+        <div id="add-product-feedback" class="dialog__feedback">
+          <ul class="dialog__feedback-msg"></ul>
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" data-id="backToForm"
+            viewBox="0 0 16 16">
+            <path
+              d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
+          </svg>
+        </div>
+        <form action="" method="POST" id="form-add-product" enctype="multipart/form-data">
+          <div class="upload-image">
+            <input type="file" id="prod-image" name="image" accept="image/*" />
+            <label id="upload-area" class="upload-image__area" for="prod-image">&plus;</label>
+            <p class="text-center mt-3">Tambah Foto Produk</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="product-category">Kategori Produk</label>
+            <div class="dropdown__box dropdown__resep">
+              <div class="dropdown__options" data-down-add="category-options">
+                <!-- ubah semua value, id, for+isi label nya -->
+                <div class="dropdown__option">
+                  <input type="radio" id="cat1" name="category" value="makanan246" checked="true" />
+                  <label for="cat1">Makanan</label>
+                </div>
+                <div class="dropdown__option">
+                  <input type="radio" id="cat2" name="category" value="minuman222" />
+                  <label for="cat2">Minuman</label>
+                </div>
+                <div class="dropdown__option">
+                  <input type="radio" id="cat3" name="category" value="side555" />
+                  <label for="cat3">Side Dish</label>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="form-label" for="product-name">Nama Produk</label>
-                <input
-                  id="prod-name"
-                  type="text"
-                  name="product"
-                  value=""
-                  placeholder="Nama"
-                />
-              </div>
-
-
-              <div class="form-group">
-                <label class="form-label" for="product-size">Ukuran</label>
-                <div class="d-flex gap-2">
-                  <input
-                    id="prod-size"
-                    type="number"
-                    name="size"
-                    placeholder="Ukuran"
-                    value="1"
-                    min="0"
-                  />
-                  <input
-                    style="width: 10rem;"
-                    id="prod-unit"
-                    type="text"
-                    value="0"
-                    name="unit"
-                    placeholder="Satuan"
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="product-price">Harga (Rp)</label>
-                <input
-                  id="prod-price"
-                  type="number"
-                  step="10000"
-                  name="price"
-                  value="10000"
-                  min="0"
-                  placeholder="harga"
-                />
-              </div>
-              <div class="dialog__cta">
-                <button type="button" class="cancel-form button-secondary">Batal</button>
-                <button class="button-primary" type="submit">Simpan</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </dialog>
-
-      <!-- POPUP TAMBAH KATEGORI PRODUCT -->
-      <dialog class="dialog dialog__add-prod-cat" id="add-prod-cat" open>
-        <div class="dialog__backdrop">
-          <div class="dialog__box">
-            <form id="form-add-prod-cat" action="" method="POST">
-              <input
-                type="text"
-                id="prod-cat"
-                name="category"
-                placeholder="Masukkan Nama Kategori"
-              />
-              <div class="dialog__prompt">
-                <span>Tekan <strong>Enter</strong> atau 
-              </span>
-                <button class="button-primary" id="prod-cat-save" disabled="true">Tambah</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </dialog>
-
-      <!-- POPUP EDIT PRODUCT -->
-      <!-- Ubah semua value pada tiap input dengan php berdasarkan produk id yang sedang dipilih user -->
-      <dialog class="dialog dialog__add-product" id="edit-product" open>
-        <div class="dialog__backdrop">
-          <div class="dialog__box">
-            <!-- feedback messages will be shown here (UI feedback secara default tidak tampil, js lah yang akan menampilkan bila ada validasi yang gagal) -->
-            <div id="edit-product-feedback" class="dialog__feedback">
-              <ul class="dialog__feedback-msg"></ul>
-              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" data-id="backToForm" viewBox="0 0 16 16">
-                <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
-              </svg>
+              <!-- js will dynamically change the text inside -->
+              <div class="dropdown__selected" data-down-add="category-selected"></div>
             </div>
-            <form
-              action=""
-              method="POST"
-              id="form-edit-product"
-              enctype="multipart/form-data"
-            >
-              <!-- Beri value pada input ini dengan id product agar di dalam POST terdapat id productnya -->
-              <input
-                id="prod-id"
-                type="hidden"
-                name="product-id"
-                value="cookies123"
-              />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="product-name">Nama Produk</label>
+            <input id="prod-name" type="text" name="product" value="" placeholder="Nama" />
+          </div>
 
-              <div class="upload-image">
-                <input
-                  type="file"
-                  id="prod-image-edit"
-                  name="image"
-                  accept="image/*"
-                />
-                <!-- ubah url pada background di bawah menyesuaikan url gambar produknya, ini hanya sekedar preview -->
-                <label
-                  style="
+
+          <div class="form-group">
+            <label class="form-label" for="product-size">Ukuran</label>
+            <div class="d-flex gap-2">
+              <input id="prod-size" type="number" name="size" placeholder="Ukuran" value="1" min="0" />
+              <input style="width: 10rem;" id="prod-unit" type="text" value="0" name="unit" placeholder="Satuan" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="product-price">Harga (Rp)</label>
+            <input id="prod-price" type="number" step="10000" name="price" value="10000" min="0" placeholder="harga" />
+          </div>
+          <div class="dialog__cta">
+            <button type="button" class="cancel-form button-secondary">Batal</button>
+            <button class="button-primary" type="submit">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- POPUP TAMBAH KATEGORI PRODUCT -->
+  <dialog class="dialog dialog__add-prod-cat" id="add-prod-cat" open>
+    <div class="dialog__backdrop">
+      <div class="dialog__box">
+        <form id="form-add-prod-cat" action="" method="POST">
+          <input type="text" id="prod-cat" name="category" placeholder="Masukkan Nama Kategori" />
+          <div class="dialog__prompt">
+            <span>Tekan <strong>Enter</strong> atau
+            </span>
+            <button class="button-primary" id="prod-cat-save" disabled="true">Tambah</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- POPUP EDIT PRODUCT -->
+  <!-- Ubah semua value pada tiap input dengan php berdasarkan produk id yang sedang dipilih user -->
+  <dialog class="dialog dialog__add-product" id="edit-product" open>
+    <div class="dialog__backdrop">
+      <div class="dialog__box">
+        <!-- feedback messages will be shown here (UI feedback secara default tidak tampil, js lah yang akan menampilkan bila ada validasi yang gagal) -->
+        <div id="edit-product-feedback" class="dialog__feedback">
+          <ul class="dialog__feedback-msg"></ul>
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" data-id="backToForm"
+            viewBox="0 0 16 16">
+            <path
+              d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
+          </svg>
+        </div>
+        <form action="" method="POST" id="form-edit-product" enctype="multipart/form-data">
+          <!-- Beri value pada input ini dengan id product agar di dalam POST terdapat id productnya -->
+          <input id="prod-id" type="hidden" name="product-id" value="cookies123" />
+
+          <div class="upload-image">
+            <input type="file" id="prod-image-edit" name="image" accept="image/*" />
+            <!-- ubah url pada background di bawah menyesuaikan url gambar produknya, ini hanya sekedar preview -->
+            <label style="
                     background-image: url('https://2.bp.blogspot.com/-ONWkgAXHXE8/UQvKC0INcqI/AAAAAAAAAPU/CEZDoV6YA3c/s1600/far-cry3x-large.jpg');
                     background-size: cover;
                     background-position: center;
-                  "
-                  id="upload-area-edit"
-                  class="upload-image__area"
-                  for="prod-image-edit"
-                ></label>
-                <!-- ubah dengan nama file nya -->
-                <p class="mt-3 text-center">doctor.jpeg</p>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="product-category"
-                  >Kategori Produk</label
-                >
-                <div class="dropdown__box dropdown__resep">
-                  <div class="dropdown__options" data-down-edit="category-options">
-                    <!-- ubah semua value, id, for+isi label nya -->
-                    <div class="dropdown__option">
-                      <input
-                        type="radio"
-                        id="cat1"
-                        name="category"
-                        value="makanan246"
-                      />
-                      <label for="cat1">Makanan</label>
-                    </div>
-                    <div class="dropdown__option">
-                      <input
-                        type="radio"
-                        id="cat2"
-                        name="category"
-                        value="minuman222"
-                        checked="true"
-                      />
-                      <label for="cat2">Minuman</label>
-                    </div>
-                    <div class="dropdown__option">
-                      <input
-                        type="radio"
-                        id="cat3"
-                        name="category"
-                        value="side555"
-                      />
-                      <label for="cat3">Side Dish</label>
-                    </div>
-                  </div>
-                  <!-- js will dynamically change the text inside -->
-                  <div class="dropdown__selected" data-down-edit="category-selected"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="product-name-edit"
-                  >Nama Produk</label
-                >
-                <input
-                  id="prod-name-edit"
-                  type="text"
-                  name="product"
-                  value="cookies"
-                  placeholder="Nama"
-                />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="product-size-edit">Ukuran</label>
-                <div class="d-flex gap-2">
-                  <input
-                    id="prod-size-edit"
-                    type="number"
-                    name="size"
-                    value="1"
-                    placeholder="Ukuran"
-                    min="0"
-                  />
-                  <input
-                    id="prod-unit-edit"
-                    style="width: 10rem;"
-                    type="text"
-                    name="unit"
-                    value="kg"
-                    placeholder="Satuan"
-                  />
-
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="product-price-edit"
-                  >Harga (Rp)</label
-                >
-                <input
-                  id="prod-price-edit"
-                  type="number"
-                  step="10000"
-                  name="price"
-                  value="10000"
-                  min="0"
-                  placeholder="harga"
-                />
-              </div>
-              <div class="dialog__cta">
-                <button type="button" class="cancel-form button-secondary ">Batal</button>
-                <button class="button-primary" type="submit">Simpan</button>
-              </div>
-            </form>
+                  " id="upload-area-edit" class="upload-image__area" for="prod-image-edit"></label>
+            <!-- ubah dengan nama file nya -->
+            <p class="mt-3 text-center">doctor.jpeg</p>
           </div>
-        </div>
-      </dialog>
+          <div class="form-group">
+            <label class="form-label" for="product-category">Kategori Produk</label>
+            <div class="dropdown__box dropdown__resep">
+              <div class="dropdown__options" data-down-edit="category-options">
+                <!-- ubah semua value, id, for+isi label nya -->
+                <div class="dropdown__option">
+                  <input type="radio" id="cat1" name="category" value="makanan246" />
+                  <label for="cat1">Makanan</label>
+                </div>
+                <div class="dropdown__option">
+                  <input type="radio" id="cat2" name="category" value="minuman222" checked="true" />
+                  <label for="cat2">Minuman</label>
+                </div>
+                <div class="dropdown__option">
+                  <input type="radio" id="cat3" name="category" value="side555" />
+                  <label for="cat3">Side Dish</label>
+                </div>
+              </div>
+              <!-- js will dynamically change the text inside -->
+              <div class="dropdown__selected" data-down-edit="category-selected"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="product-name-edit">Nama Produk</label>
+            <input id="prod-name-edit" type="text" name="product" value="cookies" placeholder="Nama" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="product-size-edit">Ukuran</label>
+            <div class="d-flex gap-2">
+              <input id="prod-size-edit" type="number" name="size" value="1" placeholder="Ukuran" min="0" />
+              <input id="prod-unit-edit" style="width: 10rem;" type="text" name="unit" value="kg"
+                placeholder="Satuan" />
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="product-price-edit">Harga (Rp)</label>
+            <input id="prod-price-edit" type="number" step="10000" name="price" value="10000" min="0"
+              placeholder="harga" />
+          </div>
+          <div class="dialog__cta">
+            <button type="button" class="cancel-form button-secondary ">Batal</button>
+            <button class="button-primary" type="submit">Simpan</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <script>
-      window.onload = () => {
-        document.getElementById("blank").style.display = "none";
-      };
-    </script>
-  </body>
+  </dialog>
+  </div>
+  <script>
+    window.onload = () => {
+      document.getElementById("blank").style.display = "none";
+    };
+  </script>
+</body>
+
 </html>

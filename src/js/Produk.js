@@ -214,3 +214,88 @@ if (editCatProducts.length > 0) {
     };
   });
 }
+
+// Handle DROPDOWN Edit Produk 
+const text1 = document.getElementById("makanan-12");
+const edit1 = document.querySelectorAll(".edit1");
+const save1 = document.querySelectorAll(".save1");
+
+edit1.forEach((ed)=>{
+  ed.addEventListener("click", function(){
+  text1.contentEditable = true;
+  text1.style.textAlign = "center";
+  text1.style.outline = "none"
+  text1.style.borderBottom = "1px solid black"
+  text1.style.backgroundColor = "none";
+  this.style.display = "none";
+  this.nextElementSibling.style.display = "inline-block";
+  })
+});
+
+save1.forEach((sa)=>{
+  sa.style.display = "none";
+  sa.addEventListener("click",function(){
+  text1.contentEditable = false;
+  text1.style.textAlign = "left";
+  text1.style.borderBottom = "none"
+  text1.style.backgroundColor = "none";
+  this.style.display = "none";
+  this.previousElementSibling.style.display = "inline-block";
+  })
+});
+
+const text2 = document.getElementById("minuman-12");
+const edit2 = document.querySelectorAll(".edit2");
+const save2 = document.querySelectorAll(".save2");
+
+edit2.forEach((ed)=>{
+  ed.addEventListener("click", function(){
+  text2.contentEditable = true;
+  text2.style.textAlign = "center";
+  text2.style.outline = "none"
+  text2.style.borderBottom = "1px solid black"
+  text2.style.backgroundColor = "none";
+  this.style.display = "none";
+  this.nextElementSibling.style.display = "inline-block";
+  })
+});
+
+save2.forEach((sa)=>{
+  sa.style.display = "none";
+  sa.addEventListener("click",function(){
+  text2.contentEditable = false;
+  text2.style.textAlign = "left";
+  text2.style.borderBottom = "none"
+  text2.style.backgroundColor = "none";
+  this.style.display = "none";
+  this.previousElementSibling.style.display = "inline-block";
+  })
+});
+
+const text3 = document.getElementById("sideDish-12");
+const edit3 = document.querySelectorAll(".edit3");
+const save3 = document.querySelectorAll(".save3");
+
+edit3.forEach((ed)=>{
+  ed.addEventListener("click", function(){
+  text3.contentEditable = true;
+  text3.style.textAlign = "center";
+  text3.style.outline = "none"
+  text3.style.borderBottom = "1px solid black"
+  text3.style.backgroundColor = "none";
+  this.style.display = "none";
+  this.nextElementSibling.style.display = "inline-block";
+  })
+});
+
+save3.forEach((sa)=>{
+  sa.style.display = "none";
+  sa.addEventListener("click",function(){
+  text3.contentEditable = false;
+  text3.style.textAlign = "left";
+  text3.style.borderBottom = "none"
+  text3.style.backgroundColor = "none";
+  this.style.display = "none";
+  this.previousElementSibling.style.display = "inline-block";
+  })
+});

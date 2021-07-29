@@ -1,0 +1,141 @@
+@use '../abstracts/' as a;
+
+.navbar {
+  background: map-get(a.$clr, primary);
+  &__brand {
+    width: 20rem;
+    height: auto;
+  }
+
+  &__text {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+  }
+}
+
+.checkout {
+  margin: 4rem 0 8rem;
+
+  h2 {
+    color: map-get(a.$clr, primary);
+  }
+}
+
+.form-bayar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+
+  &__input-file {
+    padding: 1rem 2rem;
+    background: map-get(a.$clr, selectMenu);
+    color: #fff;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+
+    & ~ input {
+      display: none;
+    }
+  }
+}
+
+.card[data-section="checkout"] {
+  border: none;
+  padding: 15px;
+  box-shadow: 0 30px 80px rgba(59, 47, 47, 0.11);
+  border-radius: 15px;
+}
+
+.card[data-card="paket"] {
+  padding: 5px;
+  box-shadow: none;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  background: map-get(a.$clr, primary);
+  border-radius: 15px;
+}
+
+.op-3 {
+  opacity: 0.3;
+}
+
+.op-5 {
+  opacity: 0.5;
+}
+
+.op-7 {
+  opacity: 0.7;
+}
+
+.op-9 {
+  opacity: 0.9;
+}
+
+.paket {
+  &__label {
+    font-size: 2rem;
+  }
+
+  &__select {
+    padding: 1rem;
+    width: 75%;
+    font-size: 1.4rem;
+    border-radius: 1rem;
+    outline: none;
+  }
+
+  &__option {
+    font-size: 1.4rem;
+  }
+
+  &__detail-head {
+    font-size: 2.6rem;
+  }
+
+  &__detail-para {
+    font-size: 1.4rem;
+  }
+}
+
+.transaksi {
+  &__data {
+    font-size: 1.6rem;
+  }
+}
+
+[data-section-name="checkout-metode"] {
+  @include a.mq(md) {
+    margin-top: -16rem;
+  }
+}
+
+[data-card="paket-benefit"] {
+  padding: 5px;
+  box-shadow: none;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  h3 {
+    font-size: 2rem;
+    text-align: start;
+  }
+  ul {
+    margin-top: 1rem;
+    text-align: start;
+  }
+  li {
+    font-size: 1.4rem;
+  }
+}

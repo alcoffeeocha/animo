@@ -1,0 +1,9 @@
+.bahan {
+  position: relative;
+
+  &__add-item {
+    display: none;
+    z-index: 100;
+    position: absolute;
+  }
+}

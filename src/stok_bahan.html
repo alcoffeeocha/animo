@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <style>
+      .spinner {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      .spinner div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border: 8px solid #d97d0d;
+        border-radius: 50%;
+        animation: moveIt 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #d97d0d transparent transparent transparent;
+      }
+      .spinner div:nth-child(1) {
+        animation-delay: -0.45s;
+      }
+      .spinner div:nth-child(2) {
+        animation-delay: -0.3s;
+      }
+      .spinner div:nth-child(3) {
+        animation-delay: -0.15s;
+      }
+      @keyframes moveIt {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <title>Animo | Stok Bahan</title>
+  </head>
+
+  <body>
+    <div
+      id="blank"
+      style="
+        position: fixed;
+        z-index: 100000;
+        width: 100vw;
+        height: 100%;
+        background-color: white;
+        place-items: center;
+        display: grid;
+      "
+    >
+      <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="container-xxl position-relative p-0 d-flex">
+      <div class="sidebar-container">
+        <sidebar class="sidebar" id="sidebar"></sidebar>
+      </div>
+      <main class="main">
+        <header class="header" id="header"></header>
+        <div class="row align-items-center">
+          <div class="col-12 col-md-6">
+            <h2 class="list__title">Keseluruhan</h2>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="filter">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <p class="filter__label">Nama Bahan</p>
+              </div>
+              <button
+                class="filter__toggler w-100"
+                id="filter-toggler"
+                aria-expanded="false"
+              >
+                <h4>Semua Bahan</h4>
+                <span>&gt;</span>
+              </button>
+              <ul id="filter-group" class="filter__group w-100">
+                <li class="filter__value">
+                  <a href="?bahan=all">
+                    <h4>Semua Bahan</h4>
+                  </a>
+                </li>
+                <li class="filter__value">
+                  <a href="?bahan=tepung">
+                    <h4>Tepung</h4>
+                  </a>
+                </li>
+                <li class="filter__value">
+                  <a href="?bahan=telur">
+                    <h4>Telur</h4>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <table class="table table__bahan table__stok">
+            <thead>
+              <tr>
+                <th>Diperbarui</th>
+                <th>Nama Bahan</th>
+                <th>Sub Bahan</th>
+                <th>Satuan</th>
+                <th>Stok Awal</th>
+                <th>Masuk</th>
+                <th>Keluar</th>
+                <th>Stok Akhir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- hapus "table__empty--false" jika ingin memunculkan teks di bawah -->
+                <td class="table__empty table__empty--false pt-5" colspan="7">
+                  Data bahan masih kosong, tambahkan melalui laman bahan
+                </td>
+              </tr>
+              <tr class="align-middle">
+                <td data-label="Diperbarui">2021-06-16</td>
+                <td data-label="Nama" rowspan="2">Tepung</td>
+                <td data-label="Sub Bahan">Segitiga Biru</td>
+                <td data-label="Satuan">gram</td>
+                <td data-label="Stok Awal">
+                  <span data-convert-to="decimal">1500</span>
+                  <button
+                    onclick="editStock({
+                        idSubBahan: 'subBahan1',
+                        namaSubBahan: 'Segitiga Biru',
+                        jenisStok: 'awal',
+                        satuan: 'gram',
+                        jumlah: 1500,
+                      })"
+                    class="button-primary"
+                  >
+                    <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                  </button>
+                </td>
+                <td data-label="Masuk">
+                  <span data-convert-to="decimal">1000</span>
+                  <button
+                    onclick="editStock({
+                        idSubBahan: 'subBahan1',
+                        namaSubBahan: 'Segitiga Biru',
+                        jenisStok: 'masuk',
+                        satuan: 'gram',
+                        jumlah: 1000,
+                      })"
+                    class="button-primary"
+                  >
+                    <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                  </button>
+                </td>
+                <td data-label="Keluar">
+                  <span data-convert-to="decimal">750</span>
+                  <button
+                    onclick="editStock({
+                        idSubBahan: 'subBahan1',
+                        namaSubBahan: 'Segitiga Biru',
+                        jenisStok: 'keluar',
+                        satuan: 'gram',
+                        jumlah: 750,
+                      })"
+                    class="button-primary"
+                  >
+                    <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                  </button>
+                </td>
+                <td data-label="Stok Akhir" data-convert-to="decimal">1750</td>
+              </tr>
+              <tr class="align-middle">
+                <td data-label="Diperbarui">2021-06-15</td>
+                <td data-label="Sub Bahan">Cakra Kembar</td>
+                <td data-label="Satuan">gram</td>
+                <td data-label="Stok Awal">
+                  <span data-convert-to="decimal">200</span>
+                  <button
+                    onclick="editStock({
+                        idSubBahan: 'subBahan2',
+                        namaSubBahan: 'Cakra Kembar',
+                        jenisStok: 'awal',
+                        satuan: 'gram',
+                        jumlah: 200,
+                      })"
+                    class="button-primary"
+                  >
+                    <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                  </button>
+                </td>
+                <td data-label="Masuk">
+                  <span data-convert-to="decimal">100</span>
+                  <button
+                    onclick="editStock({
+                        idSubBahan: 'subBahan2',
+                        namaSubBahan: 'Cakra Kembar',
+                        jenisStok: 'masuk',
+                        satuan: 'gram',
+                        jumlah: 100,
+                      })"
+                    class="button-primary"
+                  >
+                    <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                  </button>
+                </td>
+                <td data-label="Keluar">
+                  <span data-convert-to="decimal">250</span>
+                  <button
+                    onclick="editStock({
+                        idSubBahan: 'subBahan2',
+                        namaSubBahan: 'Cakra Kembar',
+                        jenisStok: 'keluar',
+                        satuan: 'gram',
+                        jumlah: 250,
+                      })"
+                    class="button-primary"
+                  >
+                    <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                  </button>
+                </td>
+                <td data-label="Stok Akhir" data-convert-to="decimal">50</td>
+              </tr>
+              <tr class="align-middle">
+                <td data-label="Diperbarui">2021-05-10</td>
+                <td data-label="Nama" rowspan="1">Telor</td>
+                <td data-label="Sub Bahan">Ayam Negeri</td>
+                <td data-label="Satuan">butir</td>
+                <td data-label="Stok Awal">
+                  <span data-convert-to="decimal">0</span>
+                  <button
+                    onclick="editStock({
+                        idSubBahan: 'subBahan3',
+                        namaSubBahan: 'Ayam Negeri',
+                        jenisStok: 'awal',
+                        satuan: 'butir',
+                        jumlah: 0,
+                      })"
+                    class="button-primary"
+                  >
+                    <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                  </button>
+                </td>
+                <td data-label="Masuk">
+                  <span data-convert-to="decimal">500</span>
+                  <button
+                    onclick="editStock({
+                        idSubBahan: 'subBahan3',
+                        namaSubBahan: 'Ayam Negeri',
+                        jenisStok: 'masuk',
+                        satuan: 'butir',
+                        jumlah: 500,
+                      })"
+                    class="button-primary"
+                  >
+                    <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                  </button>
+                </td>
+                <td data-label="Keluar">
+                  <span data-convert-to="decimal">300</span>
+                  <button
+                    onclick="editStock({
+                        idSubBahan: 'subBahan3',
+                        namaSubBahan: 'Ayam Negeri',
+                        jenisStok: 'keluar',
+                        satuan: 'butir',
+                        jumlah: 300,
+                      })"
+                    class="button-primary"
+                  >
+                    <img src="./img/icons/pen.svg" alt="Edit Icon" />
+                  </button>
+                </td>
+                <td data-label="Stok Akhir" data-convert-to="decimal">200</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+      <dialog class="dialog dialog__edit-stock" id="edit-stock" open>
+        <div class="dialog__backdrop">
+          <div class="dialog__box">
+            <form action="" method="POST" id="form-edit-stock">
+              <input type="hidden" name="idSubBahan" />
+              <!-- js will inject all of these -->
+              <h2 class="sub-bahan" id="sub-bahan">Segitiga Biru</h2>
+              <div class="text-center">
+                <span class="button-primary noselect" id="minus-btn"
+                  >&minus;</span
+                >
+                <input
+                  type="number"
+                  name="jumlah"
+                  class="input-stock noselect"
+                  id="jumlah-stok"
+                  min="0"
+                  step="10"
+                />
+                <span class="button-primary noselect" id="plus-btn"
+                  >&plus;</span
+                >
+              </div>
+              <h3 class="satuan" id="satuan">gram</h3>
+              <div class="d-flex gap-3 pick-date">
+                <label for="date-choosen" data-diperbarui="date">
+                  <img src="./img/icons/calendar.svg" alt="Calendar" />
+                  <!-- value pada input ini akan diikut sertakan pada http request -->
+                  <!-- format date masih sama: yyyy-MM-dd -->
+                  <input type="text" name="date" id="date-choosen" />
+                </label>
+                <!-- nilai ketiga input di bawah tidak dikirim pada http request -->
+                <input
+                  type="number"
+                  class="input-date"
+                  min="1"
+                  data-diperbarui="tanggal"
+                />
+                <input
+                  type="number"
+                  class="input-date"
+                  min="1"
+                  max="12"
+                  data-diperbarui="bulan"
+                />
+                <input
+                  type="number"
+                  class="input-date"
+                  min="2000"
+                  max="9999"
+                  data-diperbarui="tahun"
+                />
+              </div>
+              <div class="dialog__cta align-self-end">
+                <button
+                  type="button"
+                  onclick="closeDialog()"
+                  class="button-secondary"
+                >
+                  Batal
+                </button>
+                <button class="button-primary" type="submit">Simpan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </div>
+
+    <script>
+      window.onload = () => {
+        document.getElementById("blank").style.display = "none";
+      };
+      const editStockDialog = document.getElementById("edit-stock");
+      const formEditStock = document.getElementById("form-edit-stock");
+      const editStockFeedback = document.getElementById("edit-stock-feedback");
+      const subBahanInput = document.getElementById("sub-bahan");
+      const jumlahStok = document.getElementById("jumlah-stok");
+      const satuanInput = document.getElementById("satuan");
+      const minusBtn = document.getElementById("minus-btn");
+      const plusBtn = document.getElementById("plus-btn");
+      const tanggal = document.querySelector("[data-diperbarui='tanggal']");
+      const bulan = document.querySelector("[data-diperbarui='bulan']");
+      const tahun = document.querySelector("[data-diperbarui='tahun']");
+      const dateChoosen = document.getElementById("date-choosen");
+      function editStock({
+        idSubBahan,
+        namaSubBahan,
+        jenisStok,
+        satuan,
+        jumlah,
+      }) {
+        editStockDialog.classList.add("appear");
+        subBahanInput.textContent = namaSubBahan;
+        satuanInput.textContent = satuan;
+
+        formEditStock.forEach((el) => {
+          switch (el.name) {
+            case "idSubBahan":
+              el.value = idSubBahan;
+              break;
+            case "jumlah":
+              el.value = jumlah;
+              break;
+            case "date":
+              let today = new Date();
+              let day = "" + today.getDate();
+              let month = "" + (1 + today.getMonth());
+
+              if (day.length < 2) day = "0" + day;
+              if (month.length < 2) month = "0" + month;
+
+              let year = today.getFullYear();
+              el.value = [year, month, day].join("-");
+              tanggal.value = day;
+              bulan.value = month;
+              tahun.value = year;
+              break;
+          }
+        });
+      }
+      function closeDialog() {
+        editStockDialog.classList.remove("appear");
+      }
+
+      minusBtn.onclick = () => {
+        if (jumlahStok.value === 0) return;
+        jumlahStok.value--;
+      };
+      plusBtn.onclick = () => {
+        jumlahStok.value++;
+      };
+      tanggal.onchange = () => {
+        let numOfDate = daysInMonth(bulan.value, tahun.value);
+        if (tanggal.value > numOfDate) tanggal.value = numOfDate;
+        if (tanggal.value < 0) tanggal.value = 1;
+        if (tanggal.value.toString().length < 2)
+          tanggal.value = "0" + tanggal.value;
+        let old = dateChoosen.value.split("-");
+        old[2] = tanggal.value;
+        dateChoosen.value = old.join("-");
+      };
+      bulan.onchange = () => {
+        if (bulan.value > 12) bulan.value = 12;
+        if (bulan.value < 0) bulan.value = 1;
+        if (bulan.value.toString().length < 2) bulan.value = "0" + bulan.value;
+        let old = dateChoosen.value.split("-");
+        old[1] = bulan.value;
+        dateChoosen.value = old.join("-");
+      };
+      tahun.onchange = () => {
+        if (tahun.value < 2000 || tahun.value.toString().length !== 4)
+          tahun.value = 2000;
+        let old = dateChoosen.value.split("-");
+        old[0] = tahun.value;
+        dateChoosen.value = old.join("-");
+      };
+      function daysInMonth(month, year) {
+        return new Date(year, month, 0).getDate();
+      }
+    </script>
+  </body>
+</html>

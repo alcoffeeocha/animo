@@ -1,0 +1,203 @@
+@use '../abstracts/' as a;
+
+.table {
+  display: table;
+  margin-top: 4rem;
+  border-collapse: collapse;
+  width: 100%;
+
+  @include a.mq(lg) {
+    margin-top: 7rem;
+  }
+
+  th,
+  td {
+    font-size: 2rem;
+  }
+
+  th {
+    font-weight: 400;
+    border: none;
+  }
+
+  td {
+    font-weight: 500;
+    border: none;
+    word-break: break-all;
+  }
+
+  button {
+    padding: 0.4rem 1.4rem;
+    border-radius: 1rem;
+
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &__bahan {
+    thead {
+      display: none;
+    }
+
+    & {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+
+      @include a.mq(sm) {
+        width: 75%;
+      }
+
+      @include a.mq(md) {
+        width: 60%;
+      }
+    }
+
+    @media only screen and (min-width: 991px) {
+      & {
+        width: 100%;
+        display: table;
+      }
+
+      thead {
+        display: table-header-group;
+      }
+    }
+
+    @media only screen and (max-width: 991px) {
+      tbody,
+      tr,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      th,
+      td {
+        font-size: 1.75rem;
+      }
+      tr {
+        margin-bottom: 1.5rem;
+
+        [data-label="Nama"],
+        [data-label="Sub-Bahan"] {
+          background: #f2d5bb;
+        }
+      }
+
+      tr td {
+        text-align: right;
+        position: relative;
+
+        &:not(.table__empty) {
+          padding-left: 50%;
+        }
+
+        &:not([data-label="Nama"]) {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 1.5rem;
+        text-align: left;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__stok {
+    th,
+    td {
+      font-size: 1.75rem;
+    }
+    @media only screen and (max-width: 991px) {
+      th,
+      td {
+        font-size: 1.3rem;
+      }
+    }
+    span {
+      display: inline-block;
+      width: 5.5rem;
+    }
+  }
+
+  &__resep {
+    margin-top: 2rem;
+
+    th,
+    td {
+      font-size: 1.75rem;
+    }
+
+    @media only screen and (min-width: 991px) {
+      th:not(:first-child),
+      td:not(:first-child) {
+        text-align: center;
+      }
+    }
+  }
+
+  &__calc {
+    &-label,
+    &-value {
+      font-size: 1.7rem;
+      font-weight: 600;
+      @include a.mq(md) {
+        font-size: 2rem;
+      }
+    }
+
+    &-label {
+      color: map-get($map: a.$clr, $key: dark);
+    }
+
+    &-value {
+      color: #d97d0d;
+    }
+  }
+
+  &__empty {
+    display: table-cell;
+    color: map-get($map: a.$clr, $key: dark);
+
+    &.table__empty--false {
+      display: none;
+    }
+  }
+
+  td.table__empty {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 600;
+  }
+
+  &__sub-bahan {
+    margin-top: 0;
+    width: max-content;
+
+    th {
+      text-align: center;
+    }
+
+    input {
+      border-radius: 1rem;
+      border: 0.2px solid #733e32;
+      text-align: center;
+      outline: none;
+      width: 10.5rem;
+      padding: 0.7rem 0;
+      &::placeholder {
+        color: rgba(#1f1f1f, 65%);
+      }
+    }
+  }
+}

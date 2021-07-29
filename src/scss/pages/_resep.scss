@@ -1,0 +1,40 @@
+@use '../abstracts/' as a;
+.first-feedback {
+  font-size: 1.8rem;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none;
+
+  li {
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+.resep {
+  margin-bottom: 5rem;
+  hr {
+    display: none;
+  }
+  @media only screen and (min-width: 992px) {
+    hr {
+      display: block;
+    }
+  }
+
+  &__hpp {
+    margin-top: 4rem;
+    font-weight: 600;
+    text-align: center;
+
+    @include a.mq(lg) {
+      text-align: left;
+      font-size: 2.4rem;
+    }
+
+    span {
+      color: #d97d0d;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@use '../abstracts/' as a;
+
+.add-item {
+  display: flex;
+  column-gap: 2rem;
+  align-items: center;
+  cursor: pointer;
+
+  p {
+    margin-bottom: 0;
+    font-size: 1.8rem;
+
+    @include a.mq(md) {
+      font-size: 2rem;
+    }
+
+    @include a.mq(lg) {
+      font-size: 2.2rem;
+    }
+
+    @include a.mq(xl) {
+      font-size: 2.6rem;
+    }
+  }
+
+  &__resep {
+    margin-bottom: 0.6rem;
+    justify-content: center;
+
+    @include a.mq(xl) {
+      justify-content: flex-start;
+      margin-bottom: 0;
+    }
+  }
+}

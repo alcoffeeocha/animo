@@ -1,0 +1,16 @@
+@use '../abstracts/' as a;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2.8rem 1.5rem 2.8rem;
+
+  @include a.mq(xl) {
+    padding: 2.8rem 2rem 2.8rem;
+  }
+
+  @include a.mq(xxl) {
+    padding: 2.8rem 3rem 2.8rem 4.5rem;
+  }
+}

@@ -1,0 +1,27 @@
+@use '../abstracts/' as a;
+.header {
+  margin-bottom: 2.5rem;
+  &__title {
+    font-weight: 600;
+  }
+  &__day {
+    color: map-get(a.$clr, primary);
+  }
+
+  &__profile {
+    column-gap: 1rem;
+    cursor: pointer;
+  }
+
+  &__abbr {
+    background: rgba(map-get(a.$clr, profile), 0.6);
+    color: map-get(a.$clr, profile);
+    border-radius: 2rem;
+    padding: 1rem;
+    font-weight: 600;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+}

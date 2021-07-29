@@ -1,0 +1,62 @@
+// same as bootstrap
+$breakpoints: (
+  xs: 0,
+  sm: 35em,
+  // 575px
+  md: 47em,
+  // 767px
+  lg: 61em,
+  // 991px
+  xl: 74em,
+  // 1199px
+  xxl: 86.5em,
+  // 1399px
+);
+
+// colors
+$clr: (
+  primary: #d97d0d,
+  secondary: #733e32,
+  ctaActive: #802302,
+  ctaHover: #4d1501,
+  ctaPressed: #260b01,
+  ctaCancel: #dcdcdc,
+  bgAuth: #e5e5e5,
+  bgPopup: #f2f2f2,
+  dark: #1f1f1f,
+  light: #fdffff,
+  bgSecondary: #f2ab27,
+  profile: #d94d1a,
+  selectMenu: #e47f59,
+  placeholder: #c4c4c4,
+  outlinePrimary: #bababa,
+);
+
+// font sizes
+$fs: (
+  h1: (
+    mobile: 3.6rem,
+    tablet: 4.2rem,
+    pc: 4.8rem,
+  ),
+  h2: (
+    mobile: 2.4rem,
+    tablet: 3.2rem,
+    pc: 3.6rem,
+  ),
+  h3: (
+    mobile: 2rem,
+    tablet: 2.4rem,
+    pc: 2.8rem,
+  ),
+  h4: (
+    mobile: 1.8rem,
+    tablet: 2.2rem,
+    pc: 2.4rem,
+  ),
+  label: (
+    mobile: 1.6rem,
+    tablet: 1.8rem,
+    pc: 2rem,
+  ),
+);

@@ -1,0 +1,74 @@
+@use '../abstracts/' as a;
+$cta: map-get(a.$clr, ctaActive);
+$hover: map-get(a.$clr, ctaHover);
+$pressed: map-get(a.$clr, ctaPressed);
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 2rem;
+  * {
+    margin-right: 1.2rem;
+  }
+
+  &__count {
+    font-weight: 300;
+    text-align: center;
+    width: 100%;
+    @include a.typeSpace(label);
+    @include a.mq(sm) {
+      width: max-content;
+      text-align: start;
+    }
+  }
+
+  button {
+    box-sizing: border-box;
+    border-radius: 1rem;
+    color: $cta;
+    border: 2px solid $cta;
+    font-weight: 600;
+    font-size: 2rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: #fff;
+
+    &:focus,
+    &:hover {
+      color: $hover;
+      border: 2px solid $hover;
+    }
+
+    &:active {
+      color: $pressed;
+      border: 2px solid $pressed;
+    }
+
+    &:disabled {
+      color: rgba($cta, 0.5);
+      border: 2px solid rgba($cta, 0.5);
+    }
+  }
+
+  &__current {
+    box-sizing: border-box;
+    border-radius: 1rem;
+    color: rgba($cta, 0.5);
+    border: 1px solid rgba($cta, 0.5);
+    font-weight: 600;
+    font-size: 2rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    display: inline-block;
+    text-align: center;
+    line-height: 4.5rem;
+  }
+  &__total {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  &--with-space {
+    margin: 5rem 0;
+  }
+}
